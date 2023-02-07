@@ -753,7 +753,7 @@ MonoBehaviour:
   canOpenTag: Player
   openSound: {fileID: 8300000, guid: c776445bdcbba1f45b66921cd91bb2b2, type: 3}
   closeSound: {fileID: 0}
-  accessDeniedSound: {fileID: 8300000, guid: c49245378f742d342a9937a8e93ba2e4, type: 3}
+  accessDeniedSound: {fileID: 0}
   roomNameTexts:
   - {fileID: 6911202622228306854}
   - {fileID: 7260424230183686380}
