@@ -1006,6 +1006,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6025213445327633614}
   - component: {fileID: 4453183065264423038}
+  - component: {fileID: 5843212559324461560}
+  - component: {fileID: 411884944191414892}
   m_Layer: 0
   m_Name: AirVentCover
   m_TagString: Untagged
@@ -1054,6 +1056,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03a016932977c40aba1c8910a4be5c16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 411884944191414892}
+--- !u!65 &5843212559324461560
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7254273570022174846}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.45837227, y: 0.040416628, z: 0.5035422}
+  m_Center: {x: -0.0009919852, y: 0, z: -0.24945182}
+--- !u!95 &411884944191414892
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7254273570022174846}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bcc81528cb4e34fb592d05d7dbe4494b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &8275160536892101696
 GameObject:
   m_ObjectHideFlags: 0
