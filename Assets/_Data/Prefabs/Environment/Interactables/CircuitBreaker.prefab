@@ -213,6 +213,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 478ec655e93064cda9f802053521edda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  laserBeamGrid: {fileID: 0}
+  anim: {fileID: 3880812174419841550}
 --- !u!95 &3880812174419841550
 Animator:
   serializedVersion: 5
