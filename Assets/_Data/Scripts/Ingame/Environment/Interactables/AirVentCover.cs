@@ -8,16 +8,6 @@ public class AirVentCover : MonoBehaviour
     [Header("Cache")]
     [SerializeField] Animator anim;
 
-    void Update()
-    {
-        // DEBUG
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Use();
-        }
-        // DEBUG
-    }
-
     void Use()
     {
         // Play animation
