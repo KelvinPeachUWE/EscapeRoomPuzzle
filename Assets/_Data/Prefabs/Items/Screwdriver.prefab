@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4833726421304215701}
   - component: {fileID: 1560291381621181190}
+  - component: {fileID: 9115455336091103046}
+  - component: {fileID: 4205322557672628845}
   m_Layer: 0
   m_Name: Screwdriver
   m_TagString: Untagged
@@ -46,6 +48,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8911077e9e02941d984547428d0d752b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!54 &9115455336091103046
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3602114431524867705}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &4205322557672628845
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3602114431524867705}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.051327348, y: 0.05229207, z: 0.29928517}
+  m_Center: {x: -0.00030359626, y: 0.0000051958486, z: 0.09878802}
 --- !u!1 &7159982169494420193
 GameObject:
   m_ObjectHideFlags: 0

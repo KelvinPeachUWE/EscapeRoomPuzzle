@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1411775252621781201
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7599693994797954151}
+  m_Layer: 0
+  m_Name: ItemHoldPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7599693994797954151
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1411775252621781201}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.1, y: -0.1, z: 0.25}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5866065323021472781}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3203025836442300722
 GameObject:
   m_ObjectHideFlags: 0
@@ -13,7 +44,7 @@ GameObject:
   - component: {fileID: 5495152870852768970}
   - component: {fileID: 1822079012322188745}
   m_Layer: 0
-  m_Name: Capsule
+  m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -330,6 +361,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e24f6de5c5ca04ae6981ab6ca9bd7061, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  holdPoint: {fileID: 7599693994797954151}
+  testItem: {fileID: 0}
 --- !u!1 &5866065323021472778
 GameObject:
   m_ObjectHideFlags: 0
@@ -357,7 +390,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 1.375, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 7599693994797954151}
   m_Father: {fileID: 1131419175779568469}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
