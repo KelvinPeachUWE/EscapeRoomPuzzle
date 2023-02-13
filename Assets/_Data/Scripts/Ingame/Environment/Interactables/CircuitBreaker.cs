@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class CircuitBreaker : MonoBehaviour
+public class CircuitBreaker : Interactable
 {
     [Header("Cache")]
     [SerializeField] LaserBeamGrid laserBeamGrid;
@@ -14,6 +14,11 @@ public class CircuitBreaker : MonoBehaviour
     // Events
     public UnityEvent onActivated;
     public UnityEvent onDeactivated;
+
+    protected override void Use()
+    {
+        Activate();
+    }
 
     public void Activate()
     {

@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Keypad : MonoBehaviour
+public class Keypad : Interactable
 {
+    [Header("Cache")]
     [SerializeField] KeypadUI keypadUI;
 
-    public void Use()
+    protected override void Use()
     {
         // Enable the UI canvas with the keypad buttons
         keypadUI.gameObject.SetActive(true);
