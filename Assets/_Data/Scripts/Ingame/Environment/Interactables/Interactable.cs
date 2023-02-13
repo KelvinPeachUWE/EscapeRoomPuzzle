@@ -11,12 +11,20 @@ public abstract class Interactable : MonoBehaviour
     [Header("Settings")]
     [SerializeField] ItemPickup requiredItem;
 
+    // Events
+    public delegate void OnUse(Interactable interactableUsed);
+    public event OnUse onUse;
+
     public bool TryUse(ItemPickup heldItem)
     {
         // Does the player have the required item to use this?
         if (!RequiredItem || heldItem.name == requiredItem.name)
         {
             Use();
+
+            if (onUse != null)
+                onUse(this);
+
             return true;
         }
         else

@@ -22,6 +22,8 @@ public class PlayerInteract : MonoBehaviour
     public event OnItemPickedUp onItemPickedUp;
     public delegate void OnItemDropped(ItemPickup itemDropped);
     public event OnItemDropped onItemDropped;
+    public delegate void OnItemDestroyed(ItemPickup itemDestroyed);
+    public event OnItemDestroyed onItemDestroyed;
     // Interactable events
     public delegate void OnInteractableStartedLookingAt(Interactable interactableStartedLookingAt, ItemPickup heldItem); // heldItem is needed so it can be determined if the player has the required item
     public event OnInteractableStartedLookingAt onInteractableStartedLookingAt;
@@ -207,6 +209,10 @@ public class PlayerInteract : MonoBehaviour
     {
         // Remove from game
         Destroy(heldItem.gameObject);
+
+        // Let other interested objects know
+        if (onItemDestroyed != null)
+            onItemDestroyed(heldItem);
 
         // Remove from memory
         heldItem = null;

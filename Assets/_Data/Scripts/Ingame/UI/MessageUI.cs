@@ -20,6 +20,7 @@ public class MessageUI : MonoBehaviour
         playerInteract.onItemStoppedLookingAt += OnStoppedLookingAtItem;
         playerInteract.onInteractableStartedLookingAt += OnStartedLookingAtInteractable;
         playerInteract.onInteractableStoppedLookingAt += OnStoppedLookingAtInteractable;
+        playerInteract.onItemDestroyed += OnItemDestroyed;
     }
 
     void OnStartedLookingAtItem(ItemPickup itemStartedLookingAt)
@@ -74,6 +75,12 @@ public class MessageUI : MonoBehaviour
     void OnStoppedLookingAtInteractable(Interactable interactableStoppedLookingAt)
     {
         // Hide the message box now nothing is being looked at
+        Hide();
+    }
+
+    void OnItemDestroyed(ItemPickup itemDestroyed)
+    {
+        // Hide the message now an item
         Hide();
     }
 
