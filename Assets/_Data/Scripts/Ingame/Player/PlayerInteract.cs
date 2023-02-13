@@ -5,23 +5,37 @@ using UnityEngine;
 public class PlayerInteract : MonoBehaviour
 {
     static readonly float throwForce = 10f; // How far should items be thrown? (static so it's consistant for all players)
+    static readonly float interactRange = 5f;
 
     [SerializeField] Transform holdPoint; // Where should a picked up item be held?
-    
-    // DEBUG
-    [SerializeField] ItemPickup testItem;
 
     ItemPickup heldItem; // The object the player is currently holding
+    GameObject currentlyLookingAt; // The object the player is currently looking at (if any)
 
-    public delegate void OnPickedUp(ItemPickup itemPickedUp);
-    public event OnPickedUp onPickedUp;
-    public delegate void OnDropped(ItemPickup itemDropped);
-    public event OnDropped onDropped;
+    // Event
+    // Item events
+    public delegate void OnItemStartedLookingAt(ItemPickup itemStartedLookingAt);
+    public event OnItemStartedLookingAt onItemStartedLookingAt;
+    public delegate void OnItemStoppedLookingAt(ItemPickup itemStoppedLookingAt);
+    public event OnItemStoppedLookingAt onItemStoppedLookingAt;
+    public delegate void OnItemPickedUp(ItemPickup itemPickedUp);
+    public event OnItemPickedUp onItemPickedUp;
+    public delegate void OnItemDropped(ItemPickup itemDropped);
+    public event OnItemDropped onItemDropped;
+    // Interactable events
+    public delegate void OnInteractableStartedLookingAt(Interactable interactableStartedLookingAt);
+    public event OnInteractableStartedLookingAt onInteractableStartedLookingAt;
+    public delegate void OnInteractableStoppedLookingAt(Interactable interactableStoppedLookingAt);
+    public event OnInteractableStoppedLookingAt onInteractableStoppedLookingAt;
 
     void Update()
     {
-        // Player input
-        
+        PlayerInput();
+        CheckIfLookingAtObject();
+    }
+
+    void PlayerInput()
+    {        
         // Check if the player is pressing the item pickup button
         if (Input.GetKeyDown(KeyCode.F))
         {
@@ -35,10 +49,6 @@ public class PlayerInteract : MonoBehaviour
             {
                 // Pickup new item
                 //PickupItem();
-
-                // DEBUG
-                PickupItem(testItem);
-                // DEBUG
             }
         }
         // Check if the player is pressing the throw button
@@ -46,7 +56,81 @@ public class PlayerInteract : MonoBehaviour
         {
             // Throw currently held item forward
             if (heldItem)
+            {
                 ThrowItem(heldItem, transform.forward);
+            }
+        }
+    }
+
+    void CheckIfLookingAtObject()
+    {
+        // Check if the player is looking at an object (item or interactable)
+        // Source - https://stackoverflow.com/questions/73242434/raycast-from-camera-in-unity
+        Transform camera = Camera.main.transform;
+        RaycastHit hit;
+
+        // Raycast forward from the camera's position
+        if (Physics.Raycast(camera.position, camera.forward, out hit, interactRange))
+        {
+            // Is it an item (e.g. screwdriver) ?
+            if (hit.transform.GetComponent<ItemPickup>())
+            {
+                // Is it a different item than the current one? (prevent staring at the same item triggering code)
+                if (currentlyLookingAt != hit.transform.gameObject)
+                {
+                    // Player is looking at an item
+                    currentlyLookingAt = hit.transform.gameObject;
+
+                    if (onItemStartedLookingAt != null)
+                        onItemStartedLookingAt(hit.transform.GetComponent<ItemPickup>());
+
+                    print("Player started looking at " + currentlyLookingAt.transform.name);
+                }
+            }
+            // Is it an interactable (e.g. air vent cover)?
+            else if (hit.transform.GetComponent<Interactable>())
+            {
+                // Player is looking at an interactable
+
+                // Is it a different interactable than the current one?
+                if (currentlyLookingAt != hit.transform.gameObject)
+                {
+                    currentlyLookingAt = hit.transform.gameObject;
+
+                    if (onInteractableStartedLookingAt != null)
+                        onInteractableStartedLookingAt(hit.transform.GetComponent<Interactable>());
+
+                    print("Player started looking at " + currentlyLookingAt.name);
+                }
+            }
+            else
+            {
+                // Has the player stopped looking at an object since the previous frame?
+                if (currentlyLookingAt)
+                {
+                    print("Player stopped looking at " + currentlyLookingAt.transform.name);
+
+                    // Let anyone who is interested know (e.g. UI) an item or interactable has stopped being looked at
+
+                    // Determine whether it's an item or 
+                    // Item?
+                    if (currentlyLookingAt.GetComponent<ItemPickup>())
+                    {
+                        // Trigger event
+                        if (onItemStoppedLookingAt != null)
+                            onItemStoppedLookingAt(currentlyLookingAt.GetComponent<ItemPickup>());
+                    }
+                    // Interactable?
+                    else if (currentlyLookingAt.GetComponent<Interactable>())
+                    {
+                        // Trigger event
+                        if (onInteractableStoppedLookingAt != null)
+                            onInteractableStoppedLookingAt(currentlyLookingAt.GetComponent<Interactable>());
+                    }
+
+                    currentlyLookingAt = null;
+                }
+            }
         }
     }
 
@@ -68,8 +152,8 @@ public class PlayerInteract : MonoBehaviour
             heldItem.GetComponent<Collider>().enabled = false;
 
             // Let other objects that want to know know (e.g. display pickup message)
-            if (onPickedUp != null)
-                onPickedUp(itemToPickup);
+            if (onItemPickedUp != null)
+                onItemPickedUp(itemToPickup);
         }
     }
 
@@ -83,8 +167,8 @@ public class PlayerInteract : MonoBehaviour
         heldItem.GetComponent<Collider>().enabled = true;
 
         // Let other objects that want to know know 
-        if (onDropped != null)
-            onDropped(heldItem);
+        if (onItemDropped != null)
+            onItemDropped(heldItem);
 
         heldItem = null;
     }

@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
-public class AirVentCover : MonoBehaviour
+public class AirVentCover : Interactable
 {
     [Header("Cache")]
     [SerializeField] Animator anim;
 
-    void Use()
+    protected override void Use()
     {
         // Play animation
         anim.SetTrigger("Open");
