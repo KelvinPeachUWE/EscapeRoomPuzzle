@@ -6617,6 +6617,10 @@ PrefabInstance:
       value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 9005220659476430821, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
+      propertyPath: near clip plane
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9005220659476430821, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
       propertyPath: orthographic size
       value: 10
       objectReference: {fileID: 0}
@@ -8970,7 +8974,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7254273570022174846, guid: 7ec84a86ab87e4978b1af6a5168272b2, type: 3}
       propertyPath: m_Name
-      value: AirVentCover
+      value: Air Vent Cover
       objectReference: {fileID: 0}
     - target: {fileID: 7254273570022174846, guid: 7ec84a86ab87e4978b1af6a5168272b2, type: 3}
       propertyPath: m_IsActive

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1560291381621181190}
   - component: {fileID: 9115455336091103046}
   - component: {fileID: 4205322557672628845}
-  - component: {fileID: 1062379352680468807}
+  - component: {fileID: 7484377716620781726}
   m_Layer: 0
   m_Name: Screwdriver
   m_TagString: Untagged
@@ -49,6 +49,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8911077e9e02941d984547428d0d752b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isDestroyOnUse: 1
 --- !u!54 &9115455336091103046
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -78,7 +79,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.051327348, y: 0.05229207, z: 0.29928517}
   m_Center: {x: -0.00030359626, y: 0.0000051958486, z: 0.09878802}
---- !u!135 &1062379352680468807
+--- !u!135 &7484377716620781726
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -89,7 +90,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.2
+  m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7159982169494420193
 GameObject:

@@ -11,6 +11,20 @@ public abstract class Interactable : MonoBehaviour
     [Header("Settings")]
     [SerializeField] ItemPickup requiredItem;
 
+    public bool TryUse(ItemPickup heldItem)
+    {
+        // Does the player have the required item to use this?
+        if (!RequiredItem || heldItem.name == requiredItem.name)
+        {
+            Use();
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
     // All interactables will be usable, but what this means will be unique to each interactable class
     protected abstract void Use();
 }

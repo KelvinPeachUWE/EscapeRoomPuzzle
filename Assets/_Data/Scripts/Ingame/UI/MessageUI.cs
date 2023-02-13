@@ -43,7 +43,7 @@ public class MessageUI : MonoBehaviour
         if (interactableStartedLookingAt.RequiredItem)
         {
             // Does the player have the required item?
-            if (interactableStartedLookingAt.RequiredItem == heldItem)
+            if (heldItem && interactableStartedLookingAt.RequiredItem.name == heldItem.name)
             {
                 // Let the player know what button to press to use the held item on the interactable
                 messageText.text = "Press 'F' to use " + heldItem.name;

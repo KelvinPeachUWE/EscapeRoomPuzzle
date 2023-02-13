@@ -39,16 +39,30 @@ public class PlayerInteract : MonoBehaviour
         // Check if the player is pressing the item pickup button
         if (Input.GetKeyDown(KeyCode.F))
         {
+            // Is the player currently looking at an interactable?
+            if (currentlyLookingAt && currentlyLookingAt.GetComponent<Interactable>())
+            {
+                // Try to use this interactable (we may not have the correct item)
+                if (currentlyLookingAt.GetComponent<Interactable>().TryUse(heldItem))
+                {
+                    // If we are succesful and the item is one-time use, destroy it
+                    if (heldItem.IsDestroyOnUse)
+                    {
+                        DestroyHeldItem();
+                    }
+                }
+            }
             // Is the player currently holding an item?
-            if (heldItem)
+            else if (heldItem)
             {
                 // Drop current item
                 DropHeldItem();
             }
-            else
+            // Is the player currently looking at an item?
+            else if (currentlyLookingAt.GetComponent<ItemPickup>())
             {
-                // Pickup new item
-                //PickupItem();
+                // Pickup looked at item
+                PickupItem(currentlyLookingAt.GetComponent<ItemPickup>());
             }
         }
         // Check if the player is pressing the throw button
@@ -143,7 +157,14 @@ public class PlayerInteract : MonoBehaviour
 
             // Prevent held object interacting with world
             heldItem.GetComponent<Rigidbody>().isKinematic = true;
-            heldItem.GetComponent<Collider>().enabled = false;
+
+            // Disable all colliders (including sphere trigger used to make the area the player needs to look at bigger)
+            // This prevents a held item being detected as being looked at
+            // Source - https://answers.unity.com/questions/730070/how-to-disable-all-colliders-on-a-game-object.html
+            foreach(Collider collider in heldItem.GetComponents<Collider>())
+            {
+                collider.enabled = false;
+            }
 
             // Let other objects that want to know know (e.g. display pickup message)
             if (onItemPickedUp != null)
@@ -158,7 +179,13 @@ public class PlayerInteract : MonoBehaviour
 
         // Allow held item to interact with world
         heldItem.GetComponent<Rigidbody>().isKinematic = false;
-        heldItem.GetComponent<Collider>().enabled = true;
+
+        // Enable all colliders (including sphere trigger collider)
+        // Source - https://answers.unity.com/questions/730070/how-to-disable-all-colliders-on-a-game-object.html
+        foreach(Collider collider in heldItem.GetComponents<Collider>())
+        {
+            collider.enabled = true;
+        }
 
         // Let other objects that want to know know 
         if (onItemDropped != null)
@@ -178,8 +205,10 @@ public class PlayerInteract : MonoBehaviour
 
     void DestroyHeldItem()
     {
-        Destroy(heldItem);
+        // Remove from game
+        Destroy(heldItem.gameObject);
 
+        // Remove from memory
         heldItem = null;
     }
 }
