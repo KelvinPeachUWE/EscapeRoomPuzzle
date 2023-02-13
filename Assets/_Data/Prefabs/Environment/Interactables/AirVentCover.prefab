@@ -1056,6 +1056,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03a016932977c40aba1c8910a4be5c16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  requiredItem: {fileID: 1560291381621181190, guid: 31ee789792ac446338207652178b42fb, type: 3}
   anim: {fileID: 411884944191414892}
 --- !u!65 &5843212559324461560
 BoxCollider:

@@ -23,7 +23,7 @@ public class PlayerInteract : MonoBehaviour
     public delegate void OnItemDropped(ItemPickup itemDropped);
     public event OnItemDropped onItemDropped;
     // Interactable events
-    public delegate void OnInteractableStartedLookingAt(Interactable interactableStartedLookingAt);
+    public delegate void OnInteractableStartedLookingAt(Interactable interactableStartedLookingAt, ItemPickup heldItem); // heldItem is needed so it can be determined if the player has the required item
     public event OnInteractableStartedLookingAt onInteractableStartedLookingAt;
     public delegate void OnInteractableStoppedLookingAt(Interactable interactableStoppedLookingAt);
     public event OnInteractableStoppedLookingAt onInteractableStoppedLookingAt;
@@ -83,8 +83,6 @@ public class PlayerInteract : MonoBehaviour
 
                     if (onItemStartedLookingAt != null)
                         onItemStartedLookingAt(hit.transform.GetComponent<ItemPickup>());
-
-                    print("Player started looking at " + currentlyLookingAt.transform.name);
                 }
             }
             // Is it an interactable (e.g. air vent cover)?
@@ -98,9 +96,7 @@ public class PlayerInteract : MonoBehaviour
                     currentlyLookingAt = hit.transform.gameObject;
 
                     if (onInteractableStartedLookingAt != null)
-                        onInteractableStartedLookingAt(hit.transform.GetComponent<Interactable>());
-
-                    print("Player started looking at " + currentlyLookingAt.name);
+                        onInteractableStartedLookingAt(hit.transform.GetComponent<Interactable>(), heldItem);
                 }
             }
             else
@@ -108,8 +104,6 @@ public class PlayerInteract : MonoBehaviour
                 // Has the player stopped looking at an object since the previous frame?
                 if (currentlyLookingAt)
                 {
-                    print("Player stopped looking at " + currentlyLookingAt.transform.name);
-
                     // Let anyone who is interested know (e.g. UI) an item or interactable has stopped being looked at
 
                     // Determine whether it's an item or 
