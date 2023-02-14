@@ -41,30 +41,34 @@ public class PlayerInteract : MonoBehaviour
         // Check if the player is pressing the item pickup button
         if (Input.GetKeyDown(KeyCode.F))
         {
-            // Is the player currently looking at an interactable?
-            if (currentlyLookingAt && currentlyLookingAt.GetComponent<Interactable>())
+            // Is the player currently looking at a game object?
+            if (currentlyLookingAt)
             {
-                // Try to use this interactable (we may not have the correct item)
-                if (currentlyLookingAt.GetComponent<Interactable>().TryUse(heldItem))
+                // Is the player currently looking at an interactable?
+                if (currentlyLookingAt.GetComponent<Interactable>())
                 {
-                    // If we are succesful and the item is one-time use, destroy it
-                    if (heldItem.IsDestroyOnUse)
+                    // Try to use this interactable (we may not have the correct item)
+                    if (currentlyLookingAt.GetComponent<Interactable>().TryUse(heldItem))
                     {
-                        DestroyHeldItem();
+                        // If we are succesful and a held item is one-time use, destroy it
+                        if (heldItem && heldItem.IsDestroyOnUse)
+                        {
+                            DestroyHeldItem();
+                        }
                     }
                 }
-            }
-            // Is the player currently holding an item?
-            else if (heldItem)
-            {
-                // Drop current item
-                DropHeldItem();
-            }
-            // Is the player currently looking at an item?
-            else if (currentlyLookingAt.GetComponent<ItemPickup>())
-            {
-                // Pickup looked at item
-                PickupItem(currentlyLookingAt.GetComponent<ItemPickup>());
+                // Is the player currently holding an item?
+                else if (heldItem)
+                {
+                    // Drop current item
+                    DropHeldItem();
+                }
+                // Is the player currently looking at an item?
+                else if (currentlyLookingAt.GetComponent<ItemPickup>())
+                {
+                    // Pickup looked at item
+                    PickupItem(currentlyLookingAt.GetComponent<ItemPickup>());
+                }
             }
         }
         // Check if the player is pressing the throw button

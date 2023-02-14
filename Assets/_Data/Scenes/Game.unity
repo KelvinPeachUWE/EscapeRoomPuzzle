@@ -3517,7 +3517,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5411512981876835541, guid: 182a68adcd4f14f1ba5388b3b003a91b, type: 3}
       propertyPath: m_Name
-      value: CircuitBreaker (Inside Room)
+      value: Circuit Breaker
       objectReference: {fileID: 0}
     - target: {fileID: 6368189878665526363, guid: 182a68adcd4f14f1ba5388b3b003a91b, type: 3}
       propertyPath: m_RootOrder
@@ -3529,7 +3529,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6368189878665526363, guid: 182a68adcd4f14f1ba5388b3b003a91b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10.96
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 6368189878665526363, guid: 182a68adcd4f14f1ba5388b3b003a91b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -6692,15 +6692,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9005220659476430818, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -15
       objectReference: {fileID: 0}
     - target: {fileID: 9005220659476430818, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.125
+      value: 9.475
       objectReference: {fileID: 0}
     - target: {fileID: 9005220659476430818, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -15.8
+      value: 14.8
       objectReference: {fileID: 0}
     - target: {fileID: 9005220659476430818, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
       propertyPath: m_LocalRotation.w
@@ -8049,15 +8049,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8762286023885395322, guid: 9c489a8547f4d9e4387da15a4ff82c81, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -15
       objectReference: {fileID: 0}
     - target: {fileID: 8762286023885395322, guid: 9c489a8547f4d9e4387da15a4ff82c81, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.125
+      value: 9.475
       objectReference: {fileID: 0}
     - target: {fileID: 8762286023885395322, guid: 9c489a8547f4d9e4387da15a4ff82c81, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -15.8
+      value: 14.8
       objectReference: {fileID: 0}
     - target: {fileID: 8762286023885395322, guid: 9c489a8547f4d9e4387da15a4ff82c81, type: 3}
       propertyPath: m_LocalRotation.w
@@ -9967,7 +9967,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5411512981876835541, guid: 182a68adcd4f14f1ba5388b3b003a91b, type: 3}
       propertyPath: m_Name
-      value: CircuitBreaker (Outside Room)
+      value: Circuit Breaker
       objectReference: {fileID: 0}
     - target: {fileID: 6368189878665526363, guid: 182a68adcd4f14f1ba5388b3b003a91b, type: 3}
       propertyPath: m_RootOrder
@@ -9979,7 +9979,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6368189878665526363, guid: 182a68adcd4f14f1ba5388b3b003a91b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10.150001
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 6368189878665526363, guid: 182a68adcd4f14f1ba5388b3b003a91b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -10122,15 +10122,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1131419175779568469, guid: 115043458a436fe438e0f7f08d8786b2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -15
       objectReference: {fileID: 0}
     - target: {fileID: 1131419175779568469, guid: 115043458a436fe438e0f7f08d8786b2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.5
+      value: 8.1
       objectReference: {fileID: 0}
     - target: {fileID: 1131419175779568469, guid: 115043458a436fe438e0f7f08d8786b2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -15.8
+      value: 14.8
       objectReference: {fileID: 0}
     - target: {fileID: 1131419175779568469, guid: 115043458a436fe438e0f7f08d8786b2, type: 3}
       propertyPath: m_LocalRotation.w

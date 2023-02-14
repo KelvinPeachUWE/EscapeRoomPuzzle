@@ -59,7 +59,7 @@ public class MessageUI : MonoBehaviour
         else
         {
             // Let the player know what button to press to use the held item on the interactable
-            messageText.text = "Press 'F' to use " + heldItem.name;
+            messageText.text = "Press 'F' to use " + interactableStartedLookingAt.name;
         }
 
         // Show the message box

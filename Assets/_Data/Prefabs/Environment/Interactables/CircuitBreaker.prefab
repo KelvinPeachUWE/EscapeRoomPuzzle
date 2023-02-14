@@ -177,6 +177,7 @@ GameObject:
   - component: {fileID: 6368189878665526363}
   - component: {fileID: 3169435187854820862}
   - component: {fileID: 3880812174419841550}
+  - component: {fileID: 3816374528064147112}
   m_Layer: 0
   m_Name: CircuitBreaker
   m_TagString: Untagged
@@ -213,8 +214,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 478ec655e93064cda9f802053521edda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  requiredItem: {fileID: 0}
   laserBeamGrid: {fileID: 0}
   anim: {fileID: 3880812174419841550}
+  onActivated:
+    m_PersistentCalls:
+      m_Calls: []
+  onDeactivated:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!95 &3880812174419841550
 Animator:
   serializedVersion: 5
@@ -235,6 +243,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!65 &3816374528064147112
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5411512981876835541}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5091648, y: 0.087615944, z: 1.3744034}
+  m_Center: {x: 0, y: -0.001816757, z: 0.02362752}
 --- !u!1 &5539461662008869098
 GameObject:
   m_ObjectHideFlags: 0
@@ -343,7 +364,7 @@ Transform:
   m_GameObject: {fileID: 6368041488629378165}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4716375151778574324}
@@ -464,7 +485,7 @@ Transform:
   m_GameObject: {fileID: 7359322917068967417}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 0.1, z: 1.5}
+  m_LocalScale: {x: 0.5, y: 0.08, z: 0.75}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6368189878665526363}
