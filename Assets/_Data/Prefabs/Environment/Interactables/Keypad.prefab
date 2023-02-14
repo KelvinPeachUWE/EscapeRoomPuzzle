@@ -937,6 +937,7 @@ GameObject:
   m_Component:
   - component: {fileID: 917313778217368628}
   - component: {fileID: 6830492744646600944}
+  - component: {fileID: 3884753482656794069}
   m_Layer: 0
   m_Name: Keypad
   m_TagString: Untagged
@@ -984,7 +985,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82b738db89a494d8a86587e6ea6c7551, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  requiredItem: {fileID: 0}
   keypadUI: {fileID: 0}
+--- !u!65 &3884753482656794069
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8242723497507389175}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.08160734, y: 0.5308924, z: 0.41856766}
+  m_Center: {x: -0.0033035278, y: 0.0033040047, z: -0.000000007450581}
 --- !u!1 &9063377338182759825
 GameObject:
   m_ObjectHideFlags: 0

@@ -22,6 +22,15 @@ public class KeypadUI : MonoBehaviour
         inputBackgroundStartingColor = inputFieldImage.color;
     }
 
+    void Update()
+    {
+        // Is the player trying to exit the keypad and return to the main game?
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            Exit();
+        }
+    }
+
     public void InputKey(string input)
     {
         // Has the cancel button been pressed?

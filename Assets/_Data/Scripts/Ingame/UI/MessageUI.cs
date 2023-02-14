@@ -21,6 +21,7 @@ public class MessageUI : MonoBehaviour
         playerInteract.onInteractableStartedLookingAt += OnStartedLookingAtInteractable;
         playerInteract.onInteractableStoppedLookingAt += OnStoppedLookingAtInteractable;
         playerInteract.onItemDestroyed += OnItemDestroyed;
+        Keypad.onKeypadUsed += OnKeypadUsed;
     }
 
     void OnStartedLookingAtItem(ItemPickup itemStartedLookingAt)
@@ -81,6 +82,12 @@ public class MessageUI : MonoBehaviour
     void OnItemDestroyed(ItemPickup itemDestroyed)
     {
         // Hide the message now an item
+        Hide();
+    }
+
+    void OnKeypadUsed(Keypad keypad)
+    {
+        // Hide message box when using a keypad (we need the whole screen and it has its own mini message box)
         Hide();
     }
 
