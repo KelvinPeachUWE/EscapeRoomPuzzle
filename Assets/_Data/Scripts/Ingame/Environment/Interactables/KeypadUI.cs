@@ -16,10 +16,23 @@ public class KeypadUI : MonoBehaviour
 
     Color inputBackgroundStartingColor; // Keep initial colour so when background is flashed on wrong input it can be changed back
 
+    // Events
+    public delegate void OnKeypadUiEnabled();
+    public static event OnKeypadUiEnabled onKeypadUiEnabled;
+    public delegate void OnKeypadUiDisabled();
+    public static event OnKeypadUiDisabled onKeypadUiDisabled;
+
     void Start()
     {
         // Get the text field's initial background colour so we can change it back if a wrong code is entered
         inputBackgroundStartingColor = inputFieldImage.color;
+    }
+
+    void OnEnable()
+    {
+        if (onKeypadUiEnabled != null)
+            onKeypadUiEnabled();
+
     }
 
     void Update()
@@ -78,6 +91,9 @@ public class KeypadUI : MonoBehaviour
     {
         // Hide this keypad UI
         gameObject.SetActive(false);
+
+        if (onKeypadUiDisabled != null)
+            onKeypadUiDisabled();
     }
 
     IEnumerator Flash()

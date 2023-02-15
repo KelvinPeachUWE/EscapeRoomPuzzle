@@ -16,9 +16,41 @@ namespace StarterAssets
 		[Header("Movement Settings")]
 		public bool analogMovement;
 
-		[Header("Mouse Cursor Settings")]
-		public bool cursorLocked = true;
-		public bool cursorInputForLook = true;
+		// These can't be changed in the inspector anymore because they are changed using KeypadUI events
+		//[Header("Mouse Cursor Settings")]
+		bool cursorLocked = true;
+		bool cursorInputForLook = true;
+
+		// My code
+		void Awake()
+		{
+			// Subscribe to events
+			KeypadUI.onKeypadUiEnabled += OnKeypadUiEnabled;
+			KeypadUI.onKeypadUiDisabled += OnKeypadUiDisabled;
+		}
+
+		void OnKeypadUiEnabled()
+		{
+			// Let the player move the cursor away from the center of the screen to reach a keypad button
+			cursorLocked = false;
+			cursorInputForLook = false;
+			SetCursorState(false);
+
+			// Prevent player moving
+			GetComponent<FirstPersonController>().enabled = false;
+		}
+
+		void OnKeypadUiDisabled()
+		{
+			// Let the player movement script take control of the cursor
+			cursorLocked = true;
+			cursorInputForLook = true;
+			SetCursorState(true);
+
+			// Allow the player to move
+			GetComponent<FirstPersonController>().enabled = true;
+		}
+		// End my custom code
 
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
 		public void OnMove(InputValue value)
