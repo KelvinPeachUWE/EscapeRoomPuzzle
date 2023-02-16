@@ -29,6 +29,11 @@ public class PlayerInteract : MonoBehaviour
     public event OnInteractableStartedLookingAt onInteractableStartedLookingAt;
     public delegate void OnInteractableStoppedLookingAt(Interactable interactableStoppedLookingAt);
     public event OnInteractableStoppedLookingAt onInteractableStoppedLookingAt;
+    // Hint areas
+    public delegate void OnHintStartedLookingAt(Hint hintStartedLookingAt);
+    public event OnHintStartedLookingAt onHintStartedLookingAt;
+    public delegate void OnHintStoppedLookingAt(Hint hintStoppedLookingAt);
+    public event OnHintStoppedLookingAt onHintStoppedLookingAt;    
 
     void Update()
     {
@@ -119,6 +124,20 @@ public class PlayerInteract : MonoBehaviour
                         onInteractableStartedLookingAt(hit.transform.GetComponent<Interactable>(), heldItem);
                 }
             }
+            // Is the player currently looking at a hint area?
+            else if (hit.transform.GetComponent<Hint>())
+            {
+                // Is it a different hint than the current one?
+                if (currentlyLookingAt != hit.transform.gameObject)
+                {
+                    currentlyLookingAt = hit.transform.gameObject;
+
+                    // Let the UI system (and anyone else interested) know we are looking at a hint area
+                    if (onHintStartedLookingAt != null)
+                        onHintStartedLookingAt(hit.transform.GetComponent<Hint>());
+                }
+            }
+            // Not looking at anything interactive
             else
             {
                 // Has the player stopped looking at an object since the previous frame?
@@ -140,6 +159,13 @@ public class PlayerInteract : MonoBehaviour
                         // Trigger event
                         if (onInteractableStoppedLookingAt != null)
                             onInteractableStoppedLookingAt(currentlyLookingAt.GetComponent<Interactable>());
+                    }
+                    // Hint area?
+                    else if (currentlyLookingAt.GetComponent<Hint>())
+                    {
+                        // Trigger event
+                        if (onHintStoppedLookingAt != null)
+                            onHintStoppedLookingAt(currentlyLookingAt.GetComponent<Hint>());
                     }
 
                     currentlyLookingAt = null;

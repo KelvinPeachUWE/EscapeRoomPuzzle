@@ -21,6 +21,8 @@ public class MessageUI : MonoBehaviour
         playerInteract.onInteractableStartedLookingAt += OnStartedLookingAtInteractable;
         playerInteract.onInteractableStoppedLookingAt += OnStoppedLookingAtInteractable;
         playerInteract.onItemDestroyed += OnItemDestroyed;
+        playerInteract.onHintStartedLookingAt += OnHintStartedLookingAt;
+        playerInteract.onHintStoppedLookingAt += OnHintStoppedLookingAt;
         Keypad.onKeypadUsed += OnKeypadUsed;
     }
 
@@ -81,13 +83,31 @@ public class MessageUI : MonoBehaviour
 
     void OnItemDestroyed(ItemPickup itemDestroyed)
     {
-        // Hide the message now an item
+        // Hide the message now an the held item has been destroyed
         Hide();
     }
 
     void OnKeypadUsed(Keypad keypad)
     {
         // Hide message box when using a keypad (we need the whole screen and it has its own mini message box)
+        Hide();
+    }
+
+    void OnHintStartedLookingAt(Hint hint)
+    {
+        // Set the message box's title to the hint title
+        titleText.text = hint.HintTitle;
+        
+        // Set the main body text to the actual hint
+        messageText.text = hint.HintMessage;
+
+        // Show the message box
+        Show();
+    }
+
+    void OnHintStoppedLookingAt(Hint hint)
+    {
+        // Hide the message now a hint is no longer being looked at
         Hide();
     }
 
