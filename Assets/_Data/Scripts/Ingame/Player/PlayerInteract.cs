@@ -8,6 +8,7 @@ public class PlayerInteract : MonoBehaviour
     static readonly float interactRange = 5f;
 
     [SerializeField] Transform holdPoint; // Where should a picked up item be held?
+    [SerializeField] Transform camera; // Camera used by this player
 
     ItemPickup heldItem; // The object the player is currently holding
     GameObject currentlyLookingAt; // The object the player is currently looking at (if any)
@@ -91,7 +92,6 @@ public class PlayerInteract : MonoBehaviour
     {
         // Check if the player is looking at an object (item or interactable)
         // Source - https://stackoverflow.com/questions/73242434/raycast-from-camera-in-unity
-        Transform camera = Camera.main.transform;
         RaycastHit hit;
 
         // Raycast forward from the camera's position

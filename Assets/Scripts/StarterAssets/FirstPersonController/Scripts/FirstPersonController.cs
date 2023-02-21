@@ -108,6 +108,8 @@ namespace StarterAssets
 			// reset our timeouts on start
 			_jumpTimeoutDelta = JumpTimeout;
 			_fallTimeoutDelta = FallTimeout;
+
+			print(transform.name + ": " + _playerInput.currentControlScheme);
 		}
 
 		private void Update()
