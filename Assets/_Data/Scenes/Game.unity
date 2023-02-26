@@ -8537,11 +8537,11 @@ PrefabInstance:
       objectReference: {fileID: -944628639613478452, guid: 4c3f14a5f161f4df6ac4262230c5e250, type: 3}
     - target: {fileID: 2278373227532873053, guid: 115043458a436fe438e0f7f08d8786b2, type: 3}
       propertyPath: m_DefaultActionMap
-      value: 849705e7-bd54-46d4-a4c8-7b131c34bc34
+      value: Gamepad
       objectReference: {fileID: 0}
     - target: {fileID: 2278373227532873053, guid: 115043458a436fe438e0f7f08d8786b2, type: 3}
       propertyPath: m_DefaultControlScheme
-      value: KeyboardMouse
+      value: Gamepad
       objectReference: {fileID: 0}
     - target: {fileID: 2278373227532873053, guid: 115043458a436fe438e0f7f08d8786b2, type: 3}
       propertyPath: m_NeverAutoSwitchControlSchemes
@@ -12704,11 +12704,15 @@ PrefabInstance:
       objectReference: {fileID: -944628639613478452, guid: 4c3f14a5f161f4df6ac4262230c5e250, type: 3}
     - target: {fileID: 2278373227532873053, guid: 115043458a436fe438e0f7f08d8786b2, type: 3}
       propertyPath: m_DefaultActionMap
-      value: f62a4b92-ef5e-4175-8f4c-c9075429d32c
+      value: KeyboardMouse
       objectReference: {fileID: 0}
     - target: {fileID: 2278373227532873053, guid: 115043458a436fe438e0f7f08d8786b2, type: 3}
       propertyPath: m_DefaultControlScheme
       value: KeyboardMouse
+      objectReference: {fileID: 0}
+    - target: {fileID: 2278373227532873053, guid: 115043458a436fe438e0f7f08d8786b2, type: 3}
+      propertyPath: m_NeverAutoSwitchControlSchemes
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4407948036284517638, guid: 115043458a436fe438e0f7f08d8786b2, type: 3}
       propertyPath: m_Name
