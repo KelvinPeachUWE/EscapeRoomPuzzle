@@ -1,8 +1,8 @@
 {
-    "name": "Player1",
+    "name": "Player",
     "maps": [
         {
-            "name": "Player",
+            "name": "KeyboardMouse",
             "id": "f62a4b92-ef5e-4175-8f4c-c9075429d32c",
             "actions": [
                 {
@@ -152,33 +152,11 @@
                     "action": "Look",
                     "isComposite": false,
                     "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "1bd55a0b-761e-4ae4-89ae-8ec127e08a29",
-                    "path": "<Keyboard>/space",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "KeyboardMouse",
-                    "action": "Jump",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "dc65b89f-9bd3-43fb-92af-d0d87ba5faa4",
-                    "path": "<Keyboard>/leftShift",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "KeyboardMouse",
-                    "action": "Sprint",
-                    "isComposite": false,
-                    "isPartOfComposite": false
                 }
             ]
         },
         {
-            "name": "Player2",
+            "name": "Gamepad",
             "id": "849705e7-bd54-46d4-a4c8-7b131c34bc34",
             "actions": [
                 {
@@ -220,6 +198,116 @@
             ],
             "bindings": [
                 {
+                    "name": "Gamepad",
+                    "id": "707774d2-1bea-4b89-beaf-06c5b7c6c678",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "fc6b2cb5-6647-4ff1-ab66-f6cb3c75ccd1",
+                    "path": "<Gamepad>/leftStick/up",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "855e8405-08e1-4a2b-ac5f-d698da3ea01d",
+                    "path": "<Gamepad>/leftStick/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "d5ab4534-658e-4b70-8593-fbfffac9e423",
+                    "path": "<Gamepad>/leftStick/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "c76e61dc-11b4-4523-b0e9-56a8d6cfaef8",
+                    "path": "<Gamepad>/leftStick/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Xbox Controller",
+                    "id": "f6467777-250a-4d4a-a698-67761443d21c",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Move",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "8c49f097-d4c1-411e-926d-ee5f86e6fe81",
+                    "path": "<XInputController>/leftStick/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Xbox Controller",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "c501048a-3167-4649-b7cc-89546d032829",
+                    "path": "<XInputController>/leftStick/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Xbox Controller",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "601b6a62-6d26-4eea-a923-1311296e2b75",
+                    "path": "<XInputController>/leftStick/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Xbox Controller",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "a505f78b-3aa8-4411-a570-3b602f6bf4c9",
+                    "path": "<XInputController>/leftStick/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Xbox Controller",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
                     "name": "IJKL",
                     "id": "c57ecf41-ab78-4ee5-b472-5ef2539576af",
                     "path": "2DVector(mode=1)",
@@ -236,7 +324,7 @@
                     "path": "<Keyboard>/i",
                     "interactions": "",
                     "processors": "",
-                    "groups": "KeyboardMouse;Gamepad",
+                    "groups": "KeyboardMouse",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -247,7 +335,7 @@
                     "path": "<Keyboard>/k",
                     "interactions": "",
                     "processors": "",
-                    "groups": "KeyboardMouse;Gamepad",
+                    "groups": "KeyboardMouse",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -258,7 +346,7 @@
                     "path": "<Keyboard>/j",
                     "interactions": "",
                     "processors": "",
-                    "groups": "KeyboardMouse;Gamepad",
+                    "groups": "KeyboardMouse",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -269,41 +357,19 @@
                     "path": "<Keyboard>/l",
                     "interactions": "",
                     "processors": "",
-                    "groups": "KeyboardMouse;Gamepad",
+                    "groups": "KeyboardMouse",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
                     "name": "",
-                    "id": "7ba3e164-a713-4d27-a86c-0a721f84d2ba",
-                    "path": "<Pointer>/delta",
+                    "id": "0597f5d3-ca28-48ae-84d8-cfbc37ac812a",
+                    "path": "<Gamepad>/rightStick",
                     "interactions": "",
-                    "processors": "InvertVector2(invertX=false),ScaleVector2(x=0.05,y=0.05)",
-                    "groups": "KeyboardMouse",
+                    "processors": "ScaleVector2(x=15,y=15),InvertVector2(invertX=false)",
+                    "groups": "Gamepad",
                     "action": "Look",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "95613560-1308-4357-9b61-f27a7147be74",
-                    "path": "<Keyboard>/space",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "KeyboardMouse",
-                    "action": "Jump",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "2d65573a-ea8a-40b4-ae84-b4a9d31e8698",
-                    "path": "<Keyboard>/leftShift",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "KeyboardMouse",
-                    "action": "Sprint",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -333,17 +399,7 @@
             "devices": [
                 {
                     "devicePath": "<Gamepad>",
-                    "isOptional": true,
-                    "isOR": false
-                },
-                {
-                    "devicePath": "<XInputController>",
-                    "isOptional": true,
-                    "isOR": false
-                },
-                {
-                    "devicePath": "<DualShockGamepad>",
-                    "isOptional": true,
+                    "isOptional": false,
                     "isOR": false
                 }
             ]

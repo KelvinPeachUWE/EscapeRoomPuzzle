@@ -45,7 +45,7 @@ public class PlayerInteract : MonoBehaviour
     void PlayerInput()
     {        
         // Check if the player is pressing the item pickup button
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.F) || Input.GetButtonDown("ActionButton"))
         {
             // Is the player currently looking at a game object?
             if (currentlyLookingAt)
@@ -78,7 +78,7 @@ public class PlayerInteract : MonoBehaviour
             }
         }
         // Check if the player is pressing the throw button
-        else if (Input.GetMouseButtonDown(0))
+        else if (Input.GetMouseButtonDown(0) || Input.GetButtonDown("Fire1"))
         {
             // Throw currently held item forward
             if (heldItem)

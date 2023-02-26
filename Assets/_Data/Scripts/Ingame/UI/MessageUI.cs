@@ -32,7 +32,7 @@ public class MessageUI : MonoBehaviour
         titleText.text = itemStartedLookingAt.name;
         
         // Set the main body text to how to pick it up
-        messageText.text = "Press 'F' to pickup";
+        messageText.text = "Press 'X' to pickup";
 
         // Show the message box
         Show();
@@ -50,7 +50,7 @@ public class MessageUI : MonoBehaviour
             if (heldItem && interactableStartedLookingAt.RequiredItem.name == heldItem.name)
             {
                 // Let the player know what button to press to use the held item on the interactable
-                messageText.text = "Press 'F' to use " + heldItem.name;
+                messageText.text = "Press 'X' to use " + heldItem.name;
             }
             // The player doesn't have the required item
             else
@@ -62,7 +62,7 @@ public class MessageUI : MonoBehaviour
         else
         {
             // Let the player know what button to press to use the held item on the interactable
-            messageText.text = "Press 'F' to use " + interactableStartedLookingAt.name;
+            messageText.text = "Press 'X' to use " + interactableStartedLookingAt.name;
         }
 
         // Show the message box
