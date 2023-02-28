@@ -150,6 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3434edff4ae354fbc8b53017a6dda726, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  disableTime: 3
   lasers:
   - {fileID: 1397003312381328711}
   - {fileID: 5373759163032754247}
@@ -159,6 +160,12 @@ MonoBehaviour:
   - {fileID: 192789932178005656}
   - {fileID: 446006166913446181}
   - {fileID: 2756025752556361371}
+  onActivated:
+    m_PersistentCalls:
+      m_Calls: []
+  onDeactivated:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &2766379264582102041
 PrefabInstance:
   m_ObjectHideFlags: 0
