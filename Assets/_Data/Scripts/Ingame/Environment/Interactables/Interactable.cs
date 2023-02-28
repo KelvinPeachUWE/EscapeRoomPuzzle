@@ -18,7 +18,7 @@ public abstract class Interactable : MonoBehaviour
     public bool TryUse(ItemPickup heldItem)
     {
         // Does the player have the required item to use this?
-        if (!RequiredItem || heldItem.name == requiredItem.name)
+        if (!RequiredItem || heldItem && heldItem.name == requiredItem.name)
         {
             Use();
 
