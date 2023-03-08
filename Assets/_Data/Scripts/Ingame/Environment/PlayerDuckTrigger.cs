@@ -14,10 +14,12 @@ public class PlayerDuckTrigger : MonoBehaviour
             // Is this a duck or un-duck trigger
             if (shouldDuck)
             {
+                print("Duck");
                 other.GetComponent<PlayerDucking>().Duck();
             }
             else
             {
+                print("Stand");
                 other.GetComponent<PlayerDucking>().Stand();
             }
         }
