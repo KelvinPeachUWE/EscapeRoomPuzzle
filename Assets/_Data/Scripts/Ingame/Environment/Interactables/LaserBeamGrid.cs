@@ -21,8 +21,6 @@ public class LaserBeamGrid : MonoBehaviour
         if (isActivated)
             return;
 
-        print("Laser beam grid activated.");
-
         isActivated = true;
 
         // Let all connected circuit breakers know they need to be activated
@@ -41,8 +39,6 @@ public class LaserBeamGrid : MonoBehaviour
         if (!isActivated)
             return;
 
-        print("Laser beam grid deactivated.");
-
         isActivated = false;
 
         // Let all connected circuit breakers know they need to be deactivated
@@ -56,6 +52,17 @@ public class LaserBeamGrid : MonoBehaviour
 
         // Start a timer to disable the lasers in a while
         StartCoroutine(ResetCoroutine());
+    }
+
+    public void Disable()
+    {
+        isActivated = false;
+
+        // Disable all the lasers so the player can get through
+        foreach (GameObject laser in lasers)
+        {
+            laser.SetActive(false);
+        }
     }
 
     IEnumerator ResetCoroutine()
