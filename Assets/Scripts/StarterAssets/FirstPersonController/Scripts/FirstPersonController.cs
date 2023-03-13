@@ -51,6 +51,9 @@ namespace StarterAssets
 		[Tooltip("How far in degrees can you move the camera down")]
 		public float BottomClamp = -90.0f;
 
+		[Header("Animator")]
+		[SerializeField] Animator anim;
+
 		// cinemachine
 		private float _cinemachineTargetPitch;
 
@@ -117,6 +120,7 @@ namespace StarterAssets
 			JumpAndGravity();
 			GroundedCheck();
 			Move();
+			Animate();
 		}
 
 		private void LateUpdate()
@@ -265,6 +269,23 @@ namespace StarterAssets
 
 			// when selected, draw a gizmo in the position of, and matching radius of, the grounded collider
 			Gizmos.DrawSphere(new Vector3(transform.position.x, transform.position.y - GroundedOffset, transform.position.z), GroundedRadius);
+		}
+
+		void Animate()
+		{
+			// Has an animator controller been setup?
+			if (anim)
+			{
+				// If the player is moving play the walk animation
+				if (_speed > 0)
+				{
+					anim.SetBool("IsMoving", true);
+				}
+				else
+				{
+					anim.SetBool("IsMoving", false);
+				}
+			}
 		}
 	}
 }

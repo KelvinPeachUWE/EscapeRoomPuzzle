@@ -77,7 +77,7 @@ public class HintManager : MonoBehaviour
         // Change terminal screen text to look at poster hint
         foreach (Text text in passwordScreenOverrideTexts)
         {
-            text.text = "Don't type 1870 into the keypad :)";
+            text.text = "Don't type 1961 into the keypad :)";
         }
     }
 }

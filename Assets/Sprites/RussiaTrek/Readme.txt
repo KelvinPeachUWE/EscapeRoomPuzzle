@@ -1,0 +1,1 @@
+Source - https://russiatrek.org/blog/art/propaganda-posters-of-soviet-space-program-part-2/
