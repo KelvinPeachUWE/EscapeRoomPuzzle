@@ -45,7 +45,7 @@ public class PlayerInteract : MonoBehaviour
     void PlayerInput()
     {        
         // Check if the player is pressing the item pickup button
-        if (Input.GetKeyDown(KeyCode.F) || Input.GetButtonDown("ActionButton"))
+        if (Input.GetKeyDown(KeyCode.X) || Input.GetButtonDown("ActionButton"))
         {
             // Is the player currently looking at a game object?
             if (currentlyLookingAt)
@@ -54,7 +54,7 @@ public class PlayerInteract : MonoBehaviour
                 if (currentlyLookingAt.GetComponent<Interactable>())
                 {
                     // Try to use this interactable (we may not have the correct item)
-                    if (currentlyLookingAt.GetComponent<Interactable>().TryUse(heldItem))
+                    if (currentlyLookingAt.GetComponent<Interactable>().TryUse(gameObject, heldItem))
                     {
                         // If we are succesful and a held item is one-time use, destroy it
                         if (heldItem && heldItem.IsDestroyOnUse)

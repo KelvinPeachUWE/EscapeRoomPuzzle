@@ -15,12 +15,12 @@ public abstract class Interactable : MonoBehaviour
     public delegate void OnUse(Interactable interactableUsed);
     public event OnUse onUse;
 
-    public bool TryUse(ItemPickup heldItem)
+    public bool TryUse(GameObject user, ItemPickup heldItem)
     {
         // Does the player have the required item to use this?
         if (!RequiredItem || heldItem && heldItem.name == requiredItem.name)
         {
-            Use();
+            Use(user);
 
             if (onUse != null)
                 onUse(this);
@@ -34,5 +34,5 @@ public abstract class Interactable : MonoBehaviour
     }
 
     // All interactables will be usable, but what this means will be unique to each interactable class
-    protected abstract void Use();
+    protected abstract void Use(GameObject usedBy);
 }

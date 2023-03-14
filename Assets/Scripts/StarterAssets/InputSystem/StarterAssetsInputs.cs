@@ -27,17 +27,28 @@ namespace StarterAssets
 			// Subscribe to events
 			KeypadUI.onKeypadUiEnabled += OnKeypadUiEnabled;
 			KeypadUI.onKeypadUiDisabled += OnKeypadUiDisabled;
+
+			// Lock mouse cursor to the center of the screen so it doesn't move to the second monitor
+			Cursor.lockState = CursorLockMode.Locked;
 		}
 
-		void OnKeypadUiEnabled()
+		void OnKeypadUiEnabled(GameObject enabledBy)
 		{
-			// Let the player move the cursor away from the center of the screen to reach a keypad button
-			cursorLocked = false;
-			cursorInputForLook = false;
-			SetCursorState(false);
+			// Did we enable the keypad UI?
+			if (enabledBy == gameObject)
+			{
+				// Is it player 1 (with the keyboard and mouse)
+				if (gameObject.name == "Player1")
+				{
+					// Let the player move the cursor away from the center of the screen to reach a keypad button
+					cursorLocked = false;
+					cursorInputForLook = false;
+					SetCursorState(false);
+				}
 
-			// Prevent player moving
-			GetComponent<FirstPersonController>().enabled = false;
+				// Prevent this player moving
+				GetComponent<FirstPersonController>().enabled = false;
+			}
 		}
 
 		void OnKeypadUiDisabled()

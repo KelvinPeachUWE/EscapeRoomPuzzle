@@ -15,7 +15,7 @@ public class CircuitBreaker : Interactable
     public UnityEvent onActivated;
     public UnityEvent onDeactivated;
 
-    protected override void Use()
+    protected override void Use(GameObject usedBy)
     {
         Activate();
     }

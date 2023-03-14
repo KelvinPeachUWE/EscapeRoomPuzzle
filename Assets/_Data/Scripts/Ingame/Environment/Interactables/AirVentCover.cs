@@ -8,7 +8,7 @@ public class AirVentCover : Interactable
     [Header("Cache")]
     [SerializeField] Animator anim;
 
-    protected override void Use()
+    protected override void Use(GameObject usedBy)
     {
         // Play animation
         anim.SetTrigger("Open");

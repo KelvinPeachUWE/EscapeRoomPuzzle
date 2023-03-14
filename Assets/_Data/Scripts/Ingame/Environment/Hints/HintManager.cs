@@ -38,7 +38,7 @@ public class HintManager : MonoBehaviour
         if (airVent)
         {
             // Make air vent fall over
-            airVent.TryUse(airVent.RequiredItem);
+            airVent.TryUse(GameObject.FindGameObjectWithTag("Player"), airVent.RequiredItem);
 
             // Give hint to go through air vent
 
