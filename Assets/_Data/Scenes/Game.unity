@@ -5484,6 +5484,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player1Camera: {fileID: 1646438840}
   player2Camera: {fileID: 1452076160}
+  player2Input: {fileID: 1775178694}
+  victoryCanvas: {fileID: 900168548}
 --- !u!1 &782513130
 GameObject:
   m_ObjectHideFlags: 0
@@ -12436,6 +12438,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e24f6de5c5ca04ae6981ab6ca9bd7061, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1775178694 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2278373227532873053, guid: 115043458a436fe438e0f7f08d8786b2, type: 3}
+  m_PrefabInstance: {fileID: 1694155941}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1782071968

@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 
 public class FailsafeManager : MonoBehaviour
 {
@@ -8,12 +10,36 @@ public class FailsafeManager : MonoBehaviour
     [SerializeField] Camera player1Camera;
     [SerializeField] Camera player2Camera;
 
+    [Header("Player 2 Controls")]
+    [SerializeField] PlayerInput player2Input;
+
+    [Header("Final Audio")]
+    [SerializeField] Canvas victoryCanvas;
+
     void Update()
     {
-        // Has the escape room manager pressed the secret single monitor debug key combination?
+        // Has the escape room manager pressed any secret failsafe key combinations?
+
+        // Single monitor debug key combination?
         if (Input.GetKey(KeyCode.LeftControl) && Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.O) && Input.GetKey(KeyCode.M))
         {
             SetToSingleMonitor();
+        }
+        // Instantly complete puzzle
+        else if (Input.GetKey(KeyCode.LeftControl) && Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.I) && Input.GetKey(KeyCode.V))
+        {
+            // Game complete!
+            victoryCanvas.gameObject.SetActive(true);
+        }
+        // Reset puzzle
+        else if (Input.GetKey(KeyCode.LeftControl) && Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.R) && Input.GetKey(KeyCode.E))
+        {
+            SceneManager.LoadScene("Terminal");
+        }
+        // Make player 2 use the keyboard
+        else if (Input.GetKey(KeyCode.LeftControl) && Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.P) && Input.GetKey(KeyCode.T))
+        {
+            SetPlayerTwoControls();
         }
     }
 
@@ -29,5 +55,11 @@ public class FailsafeManager : MonoBehaviour
 
         // Set player 2's camera to the second monitor
         player2Camera.rect = new Rect(0.5f, 0f, 0.5f, 1f);
+    }
+
+    void SetPlayerTwoControls()
+    {
+        // Source - https://forum.unity.com/threads/multiple-players-on-keyboard-new-input-system.725834/#post-7476125
+        PlayerInput.all[1].SwitchCurrentControlScheme("KeyboardMouse", Keyboard.current);
     }
 }
