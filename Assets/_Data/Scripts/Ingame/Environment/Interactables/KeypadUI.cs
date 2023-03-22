@@ -17,7 +17,7 @@ public class KeypadUI : MonoBehaviour
     [SerializeField] Canvas keypadUICanvas;
     [SerializeField] InputField inputField;
     [SerializeField] Image inputFieldImage;
-    [SerializeField] Canvas victoryCanvas;
+    [SerializeField] GameObject victoryScreen;
 
     // Which player game object enabled this game object?
     [HideInInspector] public GameObject enabledBy; // [HideInInspector] so people don't try and assign in inspector. It's set via the Keypad.cs script.
@@ -61,10 +61,23 @@ public class KeypadUI : MonoBehaviour
 
     void Update()
     {
-        // Is the player trying to exit the keypad and return to the main game?
-        if (Input.GetKeyDown(KeyCode.X))
+        // Is the player who opened the keypad UI trying to exit the keypad and return to the main game?
+
+        // Player 1
+        if (enabledBy.name == "Player1")
         {
-            Exit();
+            if (Input.GetKeyDown(KeyCode.X))
+            {
+                Exit();
+            }
+        }
+        // Player 2
+        else
+        {
+            if (Input.GetKeyDown("joystick button 2"))
+            {
+                Exit();
+            }
         }
     }
 
@@ -108,7 +121,7 @@ public class KeypadUI : MonoBehaviour
     void Victory()
     {
         // Game complete!
-        victoryCanvas.gameObject.SetActive(true);
+        victoryScreen.SetActive(true);
     }
 
     void Exit()

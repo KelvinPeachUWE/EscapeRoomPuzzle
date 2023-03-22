@@ -608,16 +608,16 @@ MonoBehaviour:
   SprintSpeed: 4
   RotationSpeed: 10
   SpeedChangeRate: 10
-  JumpHeight: 0
-  Gravity: -15
+  JumpHeight: 1.2
+  Gravity: -30
   JumpTimeout: 0.1
   FallTimeout: 0.15
   Grounded: 1
-  GroundedOffset: -0.14
-  GroundedRadius: 0.5
+  GroundedOffset: 0.1
+  GroundedRadius: 0.1
   GroundLayers:
     serializedVersion: 2
-    m_Bits: 513
+    m_Bits: 577
   CinemachineCameraTarget: {fileID: 5866065323021472778}
   TopClamp: 89
   BottomClamp: -89
@@ -768,6 +768,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   holdPoint: {fileID: 7599693994797954151}
   camera: {fileID: 0}
+  playerNumber: 1
 --- !u!114 &8326310217991120052
 MonoBehaviour:
   m_ObjectHideFlags: 0

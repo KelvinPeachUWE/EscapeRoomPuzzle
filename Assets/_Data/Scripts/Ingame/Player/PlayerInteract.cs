@@ -5,13 +5,15 @@ using UnityEngine;
 public class PlayerInteract : MonoBehaviour
 {
     static readonly float throwForce = 10f; // How far should items be thrown? (static so it's consistant for all players)
-    static readonly float interactRange = 5f;
+    static readonly float interactRange = 2f;
 
     [SerializeField] Transform holdPoint; // Where should a picked up item be held?
     [SerializeField] Transform camera; // Camera used by this player
+    [SerializeField] [Min(1)] int playerNumber = 1; // Which player is this? Used to make sure correct input is checked.
 
     ItemPickup heldItem; // The object the player is currently holding
     GameObject currentlyLookingAt; // The object the player is currently looking at (if any)
+    GameObject previouslyLookingAt; // The object the player was looking at the previous frame (if any)
 
     // Event
     // Item events
@@ -43,47 +45,59 @@ public class PlayerInteract : MonoBehaviour
     }
 
     void PlayerInput()
-    {        
-        // Check if the player is pressing the item pickup button
-        if (Input.GetKeyDown(KeyCode.X) || Input.GetButtonDown("ActionButton"))
+    {
+        // Check for this player's input
+        bool inputPressed = false;
+
+        // Player 1
+        if (playerNumber == 1)
         {
-            // Is the player currently looking at a game object?
-            if (currentlyLookingAt)
+            if (Input.GetKeyDown(KeyCode.X))
             {
-                // Is the player currently looking at an interactable?
-                if (currentlyLookingAt.GetComponent<Interactable>())
-                {
-                    // Try to use this interactable (we may not have the correct item)
-                    if (currentlyLookingAt.GetComponent<Interactable>().TryUse(gameObject, heldItem))
-                    {
-                        // If we are succesful and a held item is one-time use, destroy it
-                        if (heldItem && heldItem.IsDestroyOnUse)
-                        {
-                            DestroyHeldItem();
-                        }
-                    }
-                }
-                // Is the player currently holding an item?
-                else if (heldItem)
-                {
-                    // Drop current item
-                    DropHeldItem();
-                }
-                // Is the player currently looking at an item?
-                else if (currentlyLookingAt.GetComponent<ItemPickup>())
-                {
-                    // Pickup looked at item
-                    PickupItem(currentlyLookingAt.GetComponent<ItemPickup>());
-                }
+                inputPressed = true;
             }
         }
-        // Check if the player is pressing the throw button
-        else if (Input.GetMouseButtonDown(0) || Input.GetButtonDown("Fire1"))
+        // Player 2
+        else
         {
-            // Throw currently held item forward
-            if (heldItem)
+            if (Input.GetKeyDown("joystick button 2"))
             {
-                ThrowItem(heldItem, transform.forward);
+                inputPressed = true;
+            }
+        }
+
+        // Has this player pressed any buttons?
+        if (inputPressed)
+        {
+            // Is the player currently looking at an interactable?
+            if (currentlyLookingAt && currentlyLookingAt.GetComponent<Interactable>())
+            {
+                // Try to use this interactable (we may not have the correct item)
+                if (currentlyLookingAt.GetComponent<Interactable>().TryUse(gameObject, heldItem))
+                {
+                    // If we are succesful and a held item is one-time use, destroy it
+                    if (heldItem && heldItem.IsDestroyOnUse)
+                    {
+                        DestroyHeldItem();
+                    }
+                }
+            }
+            // Is the player currently holding an item?
+            else if (heldItem)
+            {
+                // Check if the held item is in a valid (empty) location
+                // Prevent the held item being placed inside another item or wall
+                if (!heldItem.IsPlacementBlocked())
+                {
+                    // Throw currently held item forward
+                    ThrowItem(heldItem, transform.forward);
+                }
+            }
+            // Is the player currently looking at an item?
+            else if (currentlyLookingAt && currentlyLookingAt.GetComponent<ItemPickup>())
+            {
+                // Pickup looked at item
+                PickupItem(currentlyLookingAt.GetComponent<ItemPickup>());
             }
         }
     }
@@ -172,6 +186,40 @@ public class PlayerInteract : MonoBehaviour
                 }
             }
         }
+        // Check if the player has stopped looking at an object?
+        else
+        {
+                // Has the player stopped looking at an object since the previous frame?
+                if (currentlyLookingAt)
+                {
+                    // Let anyone who is interested know (e.g. UI) an item or interactable has stopped being looked at
+
+                    // Determine whether it's an item or 
+                    // Item?
+                    if (currentlyLookingAt.GetComponent<ItemPickup>())
+                    {
+                        // Trigger event
+                        if (onItemStoppedLookingAt != null)
+                            onItemStoppedLookingAt(currentlyLookingAt.GetComponent<ItemPickup>());
+                    }
+                    // Interactable?
+                    else if (currentlyLookingAt.GetComponent<Interactable>())
+                    {
+                        // Trigger event
+                        if (onInteractableStoppedLookingAt != null)
+                            onInteractableStoppedLookingAt(currentlyLookingAt.GetComponent<Interactable>());
+                    }
+                    // Hint area?
+                    else if (currentlyLookingAt.GetComponent<Hint>())
+                    {
+                        // Trigger event
+                        if (onHintStoppedLookingAt != null)
+                            onHintStoppedLookingAt(currentlyLookingAt.GetComponent<Hint>());
+                    }
+
+                    currentlyLookingAt = null;
+                } 
+        }
     }
 
     void PickupItem(ItemPickup itemToPickup)
@@ -181,16 +229,19 @@ public class PlayerInteract : MonoBehaviour
         {
             // Store a reference to the item picked up so it can be used later
             heldItem = itemToPickup;
+            heldItem.heldBy = this;
 
             // Pickup the object
-            heldItem.transform.position = holdPoint.position;
+            Vector3 holdPosition = holdPoint.position + holdPoint.TransformDirection(Vector3.forward) * heldItem.ForwardHoldOffset;
+            heldItem.transform.position = holdPosition;
+
             heldItem.transform.rotation = holdPoint.rotation;
             heldItem.transform.parent = holdPoint;
 
-            // Prevent held object interacting with world
+            // Prevent held object interacting with world (other than collisions)
             heldItem.GetComponent<Rigidbody>().isKinematic = true;
 
-            // Disable all colliders (including sphere trigger used to make the area the player needs to look at bigger)
+            // Disable all colliders (including sphere colliders used to make the area the player needs to look at bigger)
             // This prevents a held item being detected as being looked at
             // Source - https://answers.unity.com/questions/730070/how-to-disable-all-colliders-on-a-game-object.html
             foreach(Collider collider in heldItem.GetComponents<Collider>())
@@ -208,11 +259,12 @@ public class PlayerInteract : MonoBehaviour
     {
         // Drop the held item
         heldItem.transform.parent = null;
+        heldItem.heldBy = null;
 
         // Allow held item to interact with world
         heldItem.GetComponent<Rigidbody>().isKinematic = false;
 
-        // Enable all colliders (including sphere trigger collider)
+        // Enable all colliders (including sphere colliders)
         // Source - https://answers.unity.com/questions/730070/how-to-disable-all-colliders-on-a-game-object.html
         foreach(Collider collider in heldItem.GetComponents<Collider>())
         {

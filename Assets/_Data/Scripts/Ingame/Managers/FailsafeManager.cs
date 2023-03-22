@@ -14,7 +14,7 @@ public class FailsafeManager : MonoBehaviour
     [SerializeField] PlayerInput player2Input;
 
     [Header("Final Audio")]
-    [SerializeField] Canvas victoryCanvas;
+    [SerializeField] GameObject victoryScreen;
 
     void Update()
     {
@@ -29,7 +29,7 @@ public class FailsafeManager : MonoBehaviour
         else if (Input.GetKey(KeyCode.LeftControl) && Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.I) && Input.GetKey(KeyCode.V))
         {
             // Game complete!
-            victoryCanvas.gameObject.SetActive(true);
+            victoryScreen.SetActive(true);
         }
         // Reset puzzle
         else if (Input.GetKey(KeyCode.LeftControl) && Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.R) && Input.GetKey(KeyCode.E))

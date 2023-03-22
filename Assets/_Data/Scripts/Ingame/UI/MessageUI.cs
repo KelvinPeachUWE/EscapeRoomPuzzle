@@ -24,6 +24,8 @@ public class MessageUI : MonoBehaviour
         playerInteract.onHintStartedLookingAt += OnHintStartedLookingAt;
         playerInteract.onHintStoppedLookingAt += OnHintStoppedLookingAt;
         Keypad.onKeypadUsed += OnKeypadUsed;
+        playerInteract.onItemPickedUp += OnItemPickedUp;
+        playerInteract.onItemDropped += OnItemDropped;
     }
 
     void OnStartedLookingAtItem(ItemPickup itemStartedLookingAt)
@@ -109,6 +111,18 @@ public class MessageUI : MonoBehaviour
     {
         // Hide the message now a hint is no longer being looked at
         Hide();
+    }
+
+    void OnItemPickedUp(ItemPickup itemPickedUp)
+    {
+        titleText.text = itemPickedUp.name;
+        messageText.text = "Press 'X' to throw " + itemPickedUp.name;
+    }
+
+    void OnItemDropped(ItemPickup itemDropped)
+    {
+        titleText.text = "";
+        messageText.text = "";
     }
 
     void Show()
