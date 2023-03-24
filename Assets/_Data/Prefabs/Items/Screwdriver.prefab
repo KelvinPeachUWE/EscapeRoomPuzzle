@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 9080649998965380028}
   - component: {fileID: 7218589831842687200}
   - component: {fileID: 868282919105975442}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: PlacementDetector
   m_TagString: Untagged
   m_Icon: {fileID: 0}

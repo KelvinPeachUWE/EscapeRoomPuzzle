@@ -8,7 +8,8 @@ public class PlacementDetector : MonoBehaviour
     // Used to change the object's material red when blocked
     // Renderer so it can use both MeshRenderer and SpriteRenderer
     [SerializeField] Renderer[] renderers;
-    [SerializeField] Color[] startingColours; // Starting colours of each renderers array element
+    [SerializeField] LayerMask layersToCheck; // Layers that aren't allowed to be placed on
+    [HideInInspector] Color[] startingColours; // Starting colours of each renderers array element
 
     public bool IsBlocked { get; private set; }
 
@@ -24,7 +25,8 @@ public class PlacementDetector : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter(Collider other)
+    // OnTriggerStay to prevent a bug where inside two triggers then exit one and the player is allowed to place (while still inside one)
+    void OnTriggerStay(Collider other)
     {
         // Are we currently being held?
         if (itemPickup.heldBy)

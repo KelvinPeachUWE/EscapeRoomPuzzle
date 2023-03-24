@@ -799,6 +799,7 @@ Transform:
   - {fileID: 3183489348273961219}
   - {fileID: 3229192921029053389}
   - {fileID: 8669585974845039884}
+  - {fileID: 8418518528857640553}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1096,3 +1097,85 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!1001 &5473193975456071569
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 4737407004333347745}
+    m_Modifications:
+    - target: {fileID: 1645153958373663569, guid: 1f4ee973b80344b1eb17cc2db1c15bb1, type: 3}
+      propertyPath: hintTitle
+      value: Energy Tube
+      objectReference: {fileID: 0}
+    - target: {fileID: 1645153958373663569, guid: 1f4ee973b80344b1eb17cc2db1c15bb1, type: 3}
+      propertyPath: hintMessage
+      value: This powers the AI with a source of non-renewable green energy.
+      objectReference: {fileID: 0}
+    - target: {fileID: 3559459242282707148, guid: 1f4ee973b80344b1eb17cc2db1c15bb1, type: 3}
+      propertyPath: m_Name
+      value: Hint
+      objectReference: {fileID: 0}
+    - target: {fileID: 4548676389498745336, guid: 1f4ee973b80344b1eb17cc2db1c15bb1, type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4548676389498745336, guid: 1f4ee973b80344b1eb17cc2db1c15bb1, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4548676389498745336, guid: 1f4ee973b80344b1eb17cc2db1c15bb1, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 4.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4548676389498745336, guid: 1f4ee973b80344b1eb17cc2db1c15bb1, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4548676389498745336, guid: 1f4ee973b80344b1eb17cc2db1c15bb1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4548676389498745336, guid: 1f4ee973b80344b1eb17cc2db1c15bb1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4548676389498745336, guid: 1f4ee973b80344b1eb17cc2db1c15bb1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4548676389498745336, guid: 1f4ee973b80344b1eb17cc2db1c15bb1, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4548676389498745336, guid: 1f4ee973b80344b1eb17cc2db1c15bb1, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4548676389498745336, guid: 1f4ee973b80344b1eb17cc2db1c15bb1, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4548676389498745336, guid: 1f4ee973b80344b1eb17cc2db1c15bb1, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4548676389498745336, guid: 1f4ee973b80344b1eb17cc2db1c15bb1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4548676389498745336, guid: 1f4ee973b80344b1eb17cc2db1c15bb1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4548676389498745336, guid: 1f4ee973b80344b1eb17cc2db1c15bb1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1f4ee973b80344b1eb17cc2db1c15bb1, type: 3}
+--- !u!4 &8418518528857640553 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4548676389498745336, guid: 1f4ee973b80344b1eb17cc2db1c15bb1, type: 3}
+  m_PrefabInstance: {fileID: 5473193975456071569}
+  m_PrefabAsset: {fileID: 0}

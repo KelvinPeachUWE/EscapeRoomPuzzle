@@ -261,7 +261,7 @@ GameObject:
   - component: {fileID: 8765021521116404435}
   - component: {fileID: 7194870516141234832}
   - component: {fileID: 972819179611932283}
-  m_Layer: 6
+  m_Layer: 10
   m_Name: PlacementDetector
   m_TagString: Untagged
   m_Icon: {fileID: 0}

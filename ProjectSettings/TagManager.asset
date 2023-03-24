@@ -15,9 +15,9 @@ TagManager:
   - Pushable
   - Player1Camera
   - Player2Camera
-  - 
-  - 
-  - 
+  - Player
+  - PlacementDetector
+  - PlacementBlocker
   - 
   - 
   - 
