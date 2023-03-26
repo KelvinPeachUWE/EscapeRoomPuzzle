@@ -416,6 +416,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4737407004333347745, guid: da58bd24e36f94cf8b1d0ba84bf5d79f, type: 3}
   m_PrefabInstance: {fileID: 1959373960}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &41507443 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 25060339859738635, guid: 82bef3f1a2e924877b581d729572577f, type: 3}
+  m_PrefabInstance: {fileID: 25060340990401824}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &46217715
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1120,7 +1125,14 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2098048089832630670, guid: b9c39dd5201504fd580443aeefbe7aea, type: 3}
       propertyPath: m_Text
-      value: I'M TAKING YOU ALL ON A TRIP TO THE SUN :)
+      value: '1X SCREWDRIVER
+
+
+        1X TOOLBOX'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2098048089832630670, guid: b9c39dd5201504fd580443aeefbe7aea, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 42
       objectReference: {fileID: 0}
     - target: {fileID: 5114462155029022619, guid: b9c39dd5201504fd580443aeefbe7aea, type: 3}
       propertyPath: m_RootOrder
@@ -1962,6 +1974,11 @@ Transform:
 Transform:
   m_CorrespondingSourceObject: {fileID: 4737407004333347745, guid: da58bd24e36f94cf8b1d0ba84bf5d79f, type: 3}
   m_PrefabInstance: {fileID: 1456351953}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &212764952 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 25060341312261155, guid: 82bef3f1a2e924877b581d729572577f, type: 3}
+  m_PrefabInstance: {fileID: 299165977}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &227877329
 PrefabInstance:
@@ -2843,6 +2860,10 @@ PrefabInstance:
       propertyPath: m_Text
       value: REMOTE 2
       objectReference: {fileID: 0}
+    - target: {fileID: 25060340869917570, guid: 82bef3f1a2e924877b581d729572577f, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1452076160}
     - target: {fileID: 25060340869917570, guid: 82bef3f1a2e924877b581d729572577f, type: 3}
       propertyPath: m_TargetDisplay
       value: 1
@@ -5310,6 +5331,7 @@ Transform:
   - {fileID: 1171062673}
   - {fileID: 2120739829}
   - {fileID: 1751748887939704937}
+  - {fileID: 1958862024}
   m_Father: {fileID: 1052138857}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6663,6 +6685,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player1Camera: {fileID: 1646438840}
   player2Camera: {fileID: 1452076160}
+  interfaceRect1: {fileID: 1913455857}
+  interfaceCanvas2: {fileID: 1983129349}
+  interfaceRect2: {fileID: 212764952}
+  liveText1: {fileID: 41507443}
+  liveText2: {fileID: 1361586960}
   player2Input: {fileID: 1775178694}
   victoryScreen: {fileID: 1996571325}
 --- !u!1 &782513130
@@ -7374,6 +7401,10 @@ PrefabInstance:
     - target: {fileID: 6452778785948975442, guid: 9a21758535656b84f8397e2915ab76a6, type: 3}
       propertyPath: m_Name
       value: ToolCabinet (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9170423526062679769, guid: 9a21758535656b84f8397e2915ab76a6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9a21758535656b84f8397e2915ab76a6, type: 3}
@@ -8270,6 +8301,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1278605764}
     m_Modifications:
+    - target: {fileID: 105892738038039770, guid: 9a21758535656b84f8397e2915ab76a6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5079612738211060839, guid: 9a21758535656b84f8397e2915ab76a6, type: 3}
       propertyPath: m_RootOrder
       value: 22
@@ -8317,6 +8352,10 @@ PrefabInstance:
     - target: {fileID: 6452778785948975442, guid: 9a21758535656b84f8397e2915ab76a6, type: 3}
       propertyPath: m_Name
       value: ToolCabinet (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9170423526062679769, guid: 9a21758535656b84f8397e2915ab76a6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9a21758535656b84f8397e2915ab76a6, type: 3}
@@ -11522,7 +11561,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2098048089832630670, guid: b9c39dd5201504fd580443aeefbe7aea, type: 3}
       propertyPath: m_Text
-      value: I'M TAKING YOU ALL ON A TRIP TO THE SUN :)
+      value: 'CABINET CONTENTS:'
       objectReference: {fileID: 0}
     - target: {fileID: 5114462155029022619, guid: b9c39dd5201504fd580443aeefbe7aea, type: 3}
       propertyPath: m_RootOrder
@@ -11737,6 +11776,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 911605851612139508, guid: f4f6a09312c85bf4ab1ea77606004078, type: 3}
   m_PrefabInstance: {fileID: 1357900359}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1361586960 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 25060339859738635, guid: 82bef3f1a2e924877b581d729572577f, type: 3}
+  m_PrefabInstance: {fileID: 299165977}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1363893587 stripped
 Transform:
@@ -13196,7 +13240,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2098048089832630670, guid: b9c39dd5201504fd580443aeefbe7aea, type: 3}
       propertyPath: m_Text
-      value: I'M TAKING YOU ALL ON A TRIP TO THE SUN :)
+      value: 2X BROKEN ROBOT
       objectReference: {fileID: 0}
     - target: {fileID: 5114462155029022619, guid: b9c39dd5201504fd580443aeefbe7aea, type: 3}
       propertyPath: m_RootOrder
@@ -13855,7 +13899,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2098048089832630670, guid: b9c39dd5201504fd580443aeefbe7aea, type: 3}
       propertyPath: m_Text
-      value: I'M TAKING YOU ALL ON A TRIP TO THE SUN :)
+      value: '1X MONKEY TOY
+
+
+        1X POSTER'
       objectReference: {fileID: 0}
     - target: {fileID: 5114462155029022619, guid: b9c39dd5201504fd580443aeefbe7aea, type: 3}
       propertyPath: m_RootOrder
@@ -16551,6 +16598,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3106708849456239233, guid: b6ce27b3a023e364e9718217cf5dac2b, type: 3}
   m_PrefabInstance: {fileID: 1906622114}
   m_PrefabAsset: {fileID: 0}
+--- !u!224 &1913455857 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 25060341312261155, guid: 82bef3f1a2e924877b581d729572577f, type: 3}
+  m_PrefabInstance: {fileID: 25060340990401824}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1921202326
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16812,6 +16864,76 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 911605851612139508, guid: f4f6a09312c85bf4ab1ea77606004078, type: 3}
   m_PrefabInstance: {fileID: 1949557600}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1958862023
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 623255445}
+    m_Modifications:
+    - target: {fileID: 2098048089832630670, guid: b9c39dd5201504fd580443aeefbe7aea, type: 3}
+      propertyPath: m_Text
+      value: TEAMWORK IS DREAMWORK.
+      objectReference: {fileID: 0}
+    - target: {fileID: 2098048089832630670, guid: b9c39dd5201504fd580443aeefbe7aea, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 42
+      objectReference: {fileID: 0}
+    - target: {fileID: 5114462155029022619, guid: b9c39dd5201504fd580443aeefbe7aea, type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 5114462155029022619, guid: b9c39dd5201504fd580443aeefbe7aea, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -15.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5114462155029022619, guid: b9c39dd5201504fd580443aeefbe7aea, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 8.095
+      objectReference: {fileID: 0}
+    - target: {fileID: 5114462155029022619, guid: b9c39dd5201504fd580443aeefbe7aea, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 16.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 5114462155029022619, guid: b9c39dd5201504fd580443aeefbe7aea, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5114462155029022619, guid: b9c39dd5201504fd580443aeefbe7aea, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5114462155029022619, guid: b9c39dd5201504fd580443aeefbe7aea, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5114462155029022619, guid: b9c39dd5201504fd580443aeefbe7aea, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5114462155029022619, guid: b9c39dd5201504fd580443aeefbe7aea, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5114462155029022619, guid: b9c39dd5201504fd580443aeefbe7aea, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 5114462155029022619, guid: b9c39dd5201504fd580443aeefbe7aea, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5546416815359065854, guid: b9c39dd5201504fd580443aeefbe7aea, type: 3}
+      propertyPath: m_Name
+      value: ComputerConsole (4)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b9c39dd5201504fd580443aeefbe7aea, type: 3}
+--- !u!4 &1958862024 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5114462155029022619, guid: b9c39dd5201504fd580443aeefbe7aea, type: 3}
+  m_PrefabInstance: {fileID: 1958862023}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1959373960
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16946,6 +17068,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 1521389148425696014, guid: fd004d847434d4da38d63eecbd069657, type: 3}
   m_PrefabInstance: {fileID: 1965811654}
+  m_PrefabAsset: {fileID: 0}
+--- !u!223 &1983129349 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 25060340869917570, guid: 82bef3f1a2e924877b581d729572577f, type: 3}
+  m_PrefabInstance: {fileID: 299165977}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1983635570
 PrefabInstance:
@@ -18753,6 +18880,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 25060340869917570, guid: 82bef3f1a2e924877b581d729572577f, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1646438840}
     - target: {fileID: 25060340869917571, guid: 82bef3f1a2e924877b581d729572577f, type: 3}
       propertyPath: m_Pivot.x
       value: 0

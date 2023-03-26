@@ -9,6 +9,11 @@ public class FailsafeManager : MonoBehaviour
     [Header("Dual Monitors")]
     [SerializeField] Camera player1Camera;
     [SerializeField] Camera player2Camera;
+    [SerializeField] RectTransform interfaceRect1;
+    [SerializeField] Canvas interfaceCanvas2;
+    [SerializeField] RectTransform interfaceRect2;
+    [SerializeField] GameObject liveText1;
+    [SerializeField] GameObject liveText2;
 
     [Header("Player 2 Controls")]
     [SerializeField] PlayerInput player2Input;
@@ -37,7 +42,7 @@ public class FailsafeManager : MonoBehaviour
             SceneManager.LoadScene("Terminal");
         }
         // Make player 2 use the keyboard
-        else if (Input.GetKey(KeyCode.LeftControl) && Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.P) && Input.GetKey(KeyCode.T))
+        else if (Input.GetKey(KeyCode.LeftControl) && Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.O) && Input.GetKey(KeyCode.G))
         {
             SetPlayerTwoControls();
         }
@@ -55,6 +60,19 @@ public class FailsafeManager : MonoBehaviour
 
         // Set player 2's camera to the second monitor
         player2Camera.rect = new Rect(0.5f, 0f, 0.5f, 1f);
+
+        // Make sure looking at object notifications still show up
+        // Source - https://answers.unity.com/questions/1577433/how-to-get-and-change-recttransform-position-left.html
+        interfaceRect1.offsetMax = new Vector2(-960f, 250f); // First half of screen
+
+        interfaceCanvas2.targetDisplay = 0; // Move player 2 notifications to monitor 1
+        interfaceRect2.offsetMin = new Vector2(960f, 0f); // Second half of screen
+        // Source - https://forum.unity.com/threads/modify-the-width-and-height-of-recttransform.270993/
+        interfaceRect2.sizeDelta = new Vector2 (interfaceRect2.sizeDelta.x, 250f); 
+
+        // Hide 'REMOTE 1' text
+        liveText1.SetActive(false);
+        liveText2.SetActive(false);
     }
 
     void SetPlayerTwoControls()
