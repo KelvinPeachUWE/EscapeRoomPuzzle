@@ -10,6 +10,7 @@ public class PlayerInteract : MonoBehaviour
     [SerializeField] Transform holdPoint; // Where should a picked up item be held?
     [SerializeField] Transform camera; // Camera used by this player
     [SerializeField] [Min(1)] int playerNumber = 1; // Which player is this? Used to make sure correct input is checked.
+    [SerializeField] AudioSource audioSrc; // Where to play sound effects
 
     ItemPickup heldItem; // The object the player is currently holding
     GameObject currentlyLookingAt; // The object the player is currently looking at (if any)
@@ -248,6 +249,10 @@ public class PlayerInteract : MonoBehaviour
             {
                 collider.enabled = false;
             }
+
+            // Play pickup sound (if there is one)
+            if (audioSrc && heldItem.PickupSound)
+                audioSrc.PlayOneShot(heldItem.PickupSound);
 
             // Let other objects that want to know know (e.g. display pickup message)
             if (onItemPickedUp != null)

@@ -10,6 +10,10 @@ public abstract class Interactable : MonoBehaviour
 
     [Header("Settings")]
     [SerializeField] ItemPickup requiredItem;
+    [SerializeField] AudioClip useSound;
+
+    [Header("Cache")]
+    [SerializeField] AudioSource audioSrc;
 
     // Events
     public delegate void OnUse(Interactable interactableUsed);
@@ -21,6 +25,10 @@ public abstract class Interactable : MonoBehaviour
         if (!RequiredItem || heldItem && heldItem.name == requiredItem.name)
         {
             Use(user);
+
+            // Play sound (if there is one)
+            if (audioSrc && useSound)
+                audioSrc.PlayOneShot(useSound);
 
             if (onUse != null)
                 onUse(this);
