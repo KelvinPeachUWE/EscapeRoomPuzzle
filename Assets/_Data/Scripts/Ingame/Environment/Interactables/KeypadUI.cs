@@ -43,7 +43,7 @@ public class KeypadUI : MonoBehaviour
 
         // Based on the player that activated the keypad UI, choose which monitor to show the UI on
         // Player 1
-        if (enabledBy.name == "Player1")
+        if (enabledBy.name == "Player1" || FailsafeManager.isOneMonitorMode) // If in one monitor failsafe mode, always display on monitor 1
         {
             keypadUICanvas.targetDisplay = 0; // 0 = monitor 1 because it starts counting from 0
         }

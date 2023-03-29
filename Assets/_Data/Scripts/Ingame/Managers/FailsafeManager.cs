@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
+using StarterAssets;
 
 public class FailsafeManager : MonoBehaviour
 {
+    public static bool isOneMonitorMode;
+
     [Header("Dual Monitors")]
     [SerializeField] Camera player1Camera;
     [SerializeField] Camera player2Camera;
@@ -20,6 +23,11 @@ public class FailsafeManager : MonoBehaviour
 
     [Header("Final Audio")]
     [SerializeField] GameObject victoryScreen;
+
+    [Header("Mouse Sensitivity")]
+    [SerializeField] FirstPersonController firstPersonController;
+    [SerializeField] float lowMouseSensitivity = 5f;
+    [SerializeField] float highMouseSensitivity = 15f;
 
     void Update()
     {
@@ -45,6 +53,16 @@ public class FailsafeManager : MonoBehaviour
         else if (Input.GetKey(KeyCode.LeftControl) && Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.O) && Input.GetKey(KeyCode.G))
         {
             SetPlayerTwoControls();
+        }
+        // Low mouse sensitivity
+        else if (Input.GetKey(KeyCode.LeftControl) && Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.L) && Input.GetKey(KeyCode.M))
+        {
+            firstPersonController.RotationSpeed = lowMouseSensitivity;
+        }
+        // High mouse sensitivity
+        else if (Input.GetKey(KeyCode.LeftControl) && Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.H) && Input.GetKey(KeyCode.M))
+        {
+            firstPersonController.RotationSpeed = highMouseSensitivity;
         }
     }
 
@@ -73,6 +91,9 @@ public class FailsafeManager : MonoBehaviour
         // Hide 'REMOTE 1' text
         liveText1.SetActive(false);
         liveText2.SetActive(false);
+
+        // Set the keypad to use monitor 1
+        isOneMonitorMode = true;
     }
 
     void SetPlayerTwoControls()
