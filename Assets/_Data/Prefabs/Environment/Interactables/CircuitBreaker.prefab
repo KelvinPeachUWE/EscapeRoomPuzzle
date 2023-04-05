@@ -216,7 +216,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   requiredItem: {fileID: 0}
-  useSound: {fileID: 0}
+  useSound: {fileID: 8300000, guid: 5e94d33d327001944bc4a3ceaf310505, type: 3}
   audioSrc: {fileID: 4555831400319236644}
   laserBeamGrid: {fileID: 0}
   anim: {fileID: 3880812174419841550}

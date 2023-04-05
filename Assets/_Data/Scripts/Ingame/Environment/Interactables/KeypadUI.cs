@@ -9,6 +9,7 @@ public class KeypadUI : MonoBehaviour
     [Header("Settings")]
     [SerializeField] [Min(1)] string password = "1337";
     [SerializeField] Color wrongInputColour = Color.red;
+    [SerializeField] AudioClip wrongSound;
     // Which button is selected by default for player 2 (controller)
     // Without this, player 2 can't use the UI
     [SerializeField] GameObject firstSelectedButton;
@@ -18,6 +19,7 @@ public class KeypadUI : MonoBehaviour
     [SerializeField] InputField inputField;
     [SerializeField] Image inputFieldImage;
     [SerializeField] GameObject victoryScreen;
+    [SerializeField] AudioSource audioSrc;
 
     // Which player game object enabled this game object?
     [HideInInspector] public GameObject enabledBy; // [HideInInspector] so people don't try and assign in inspector. It's set via the Keypad.cs script.
@@ -137,6 +139,10 @@ public class KeypadUI : MonoBehaviour
     {
         // Turn to wrong colour
         inputFieldImage.color = wrongInputColour;
+
+        // Play incorrect sound
+        if (audioSrc && wrongSound)
+            audioSrc.PlayOneShot(wrongSound);
 
         // Wait briefly
         yield return new WaitForSeconds(0.1f);

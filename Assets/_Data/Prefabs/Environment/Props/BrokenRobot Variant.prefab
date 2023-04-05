@@ -623,7 +623,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7850426659998949729, guid: ab620aecac3254544b7631d2a7417b1e, type: 3}
       propertyPath: m_Name
-      value: BrokenRobot
+      value: BrokenRobot Variant
       objectReference: {fileID: 0}
     - target: {fileID: 7850426659998949729, guid: ab620aecac3254544b7631d2a7417b1e, type: 3}
       propertyPath: m_Layer
@@ -756,6 +756,8 @@ MonoBehaviour:
   isDestroyOnUse: 0
   forwardHoldOffset: 1.5
   placementDetector: {fileID: 2051534670}
+  pickupSound: {fileID: 8300000, guid: 51b133597d85ee9428e80415291721de, type: 3}
+  dropSound: {fileID: 8300000, guid: d92299da60f97ec4098bfd86905d2e95, type: 3}
 --- !u!23 &1912050763136187103 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 4825720240842020105, guid: ab620aecac3254544b7631d2a7417b1e, type: 3}
@@ -821,6 +823,8 @@ MonoBehaviour:
   isDestroyOnUse: 0
   forwardHoldOffset: 1.5
   placementDetector: {fileID: 32935829}
+  pickupSound: {fileID: 8300000, guid: 51b133597d85ee9428e80415291721de, type: 3}
+  dropSound: {fileID: 8300000, guid: d92299da60f97ec4098bfd86905d2e95, type: 3}
 --- !u!23 &2499425115512995837 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 8853833953944358955, guid: ab620aecac3254544b7631d2a7417b1e, type: 3}
@@ -876,6 +880,8 @@ MonoBehaviour:
   isDestroyOnUse: 0
   forwardHoldOffset: 1.5
   placementDetector: {fileID: 2119080482}
+  pickupSound: {fileID: 8300000, guid: 51b133597d85ee9428e80415291721de, type: 3}
+  dropSound: {fileID: 8300000, guid: d92299da60f97ec4098bfd86905d2e95, type: 3}
 --- !u!1 &2947803780141419482 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8113284341402969100, guid: ab620aecac3254544b7631d2a7417b1e, type: 3}
@@ -926,6 +932,8 @@ MonoBehaviour:
   isDestroyOnUse: 0
   forwardHoldOffset: 1.5
   placementDetector: {fileID: 333204140}
+  pickupSound: {fileID: 8300000, guid: 51b133597d85ee9428e80415291721de, type: 3}
+  dropSound: {fileID: 8300000, guid: d92299da60f97ec4098bfd86905d2e95, type: 3}
 --- !u!23 &2976406446834604274 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 8160187246481274660, guid: ab620aecac3254544b7631d2a7417b1e, type: 3}
@@ -1024,6 +1032,8 @@ MonoBehaviour:
   isDestroyOnUse: 0
   forwardHoldOffset: 1
   placementDetector: {fileID: 952914066}
+  pickupSound: {fileID: 8300000, guid: 51b133597d85ee9428e80415291721de, type: 3}
+  dropSound: {fileID: 8300000, guid: d92299da60f97ec4098bfd86905d2e95, type: 3}
 --- !u!23 &5881648028826249741 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 715880254411015643, guid: ab620aecac3254544b7631d2a7417b1e, type: 3}
@@ -1094,6 +1104,8 @@ MonoBehaviour:
   isDestroyOnUse: 0
   forwardHoldOffset: 1.5
   placementDetector: {fileID: 535610780}
+  pickupSound: {fileID: 8300000, guid: 51b133597d85ee9428e80415291721de, type: 3}
+  dropSound: {fileID: 8300000, guid: d92299da60f97ec4098bfd86905d2e95, type: 3}
 --- !u!4 &8493952786727648874 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3283137298235199932, guid: ab620aecac3254544b7631d2a7417b1e, type: 3}

@@ -9,6 +9,7 @@ public class ItemPickup : MonoBehaviour
     public bool IsDestroyOnUse { get { return isDestroyOnUse; } }
     public float ForwardHoldOffset { get { return forwardHoldOffset; } }
     public AudioClip PickupSound { get { return pickupSound; } }
+    public AudioClip DropSound { get { return dropSound; } }
 
     [SerializeField] bool isDestroyOnUse; // Can this item only be used once?
     [SerializeField] float forwardHoldOffset; // Adjust where the item should be held
@@ -16,6 +17,7 @@ public class ItemPickup : MonoBehaviour
     // Separate object so the collider doesn't affect the item pickup's rigidbody
     [SerializeField] PlacementDetector placementDetector;
     [SerializeField] AudioClip pickupSound;
+    [SerializeField] AudioClip dropSound;
 
     // Store in case we need to reset the item (e.g. it goes out-of-bounds)
     Vector3 initialPosition;

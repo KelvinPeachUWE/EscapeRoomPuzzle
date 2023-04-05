@@ -1058,7 +1058,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   requiredItem: {fileID: 1560291381621181190, guid: 31ee789792ac446338207652178b42fb, type: 3}
-  useSound: {fileID: 0}
+  useSound: {fileID: 8300000, guid: 17449dc784375d1429b0507e5d9abc3e, type: 3}
   audioSrc: {fileID: 2252345699868057065}
   anim: {fileID: 411884944191414892}
 --- !u!65 &5843212559324461560
@@ -1114,7 +1114,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 5
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -1150,7 +1150,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0

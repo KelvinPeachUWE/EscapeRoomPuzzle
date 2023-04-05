@@ -281,3 +281,5 @@ MonoBehaviour:
   isDestroyOnUse: 0
   forwardHoldOffset: 1
   placementDetector: {fileID: 295195857220483890}
+  pickupSound: {fileID: 8300000, guid: 51b133597d85ee9428e80415291721de, type: 3}
+  dropSound: {fileID: 8300000, guid: d92299da60f97ec4098bfd86905d2e95, type: 3}

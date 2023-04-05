@@ -751,8 +751,8 @@ MonoBehaviour:
   isAccessGranted: 1
   roomName: Generic Room
   canOpenTag: Player
-  openSound: {fileID: 8300000, guid: c776445bdcbba1f45b66921cd91bb2b2, type: 3}
-  closeSound: {fileID: 0}
+  openSound: {fileID: 8300000, guid: c462f310130379e46a29ca96f4e110c6, type: 3}
+  closeSound: {fileID: 8300000, guid: c462f310130379e46a29ca96f4e110c6, type: 3}
   accessDeniedSound: {fileID: 0}
   roomNameTexts:
   - {fileID: 6911202622228306854}

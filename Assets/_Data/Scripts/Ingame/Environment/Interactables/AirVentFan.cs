@@ -5,8 +5,13 @@ using StarterAssets;
 
 public class AirVentFan : MonoBehaviour
 {
+    [Header("Settings")]
     [SerializeField] Transform[] waypoints; // Positions the player will automatically move to
     [SerializeField] float moveSpeed = 2f; // How fast should the player be moved through the air vent
+    [SerializeField] AudioClip useSound;
+
+    [Header("Cache")]
+    [SerializeField] AudioSource audioSrc;
 
     void OnTriggerEnter(Collider other)
     {
@@ -15,6 +20,10 @@ public class AirVentFan : MonoBehaviour
         {
             // Move the player through the air vent system
             StartCoroutine(MovePlayer(other.transform));
+
+            // Play 'whoosh' sound
+            if (audioSrc && useSound)
+                audioSrc.PlayOneShot(useSound);
         }
     }
 

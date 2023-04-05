@@ -54,6 +54,10 @@ namespace StarterAssets
 		[Header("Animator")]
 		[SerializeField] Animator anim;
 
+		[Header("Sound")]
+		[SerializeField] AudioSource audioSrc;
+		[SerializeField] AudioClip jumpSound;
+
 		// cinemachine
 		private float _cinemachineTargetPitch;
 
@@ -222,6 +226,10 @@ namespace StarterAssets
 				{
 					// the square root of H * -2 * G = how much velocity needed to reach desired height
 					_verticalVelocity = Mathf.Sqrt(JumpHeight * -2f * Gravity);
+
+					// Play jump sound
+					if (audioSrc && jumpSound && !audioSrc.isPlaying) // Prevent jump sound playing more than once at a time
+						audioSrc.PlayOneShot(jumpSound);
 				}
 
 				// jump timeout

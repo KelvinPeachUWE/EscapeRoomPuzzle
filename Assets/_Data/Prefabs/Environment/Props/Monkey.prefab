@@ -1593,6 +1593,7 @@ MonoBehaviour:
   isDestroyOnUse: 0
   forwardHoldOffset: 1
   placementDetector: {fileID: 8358991645265540918}
+  pickupSound: {fileID: 8300000, guid: 51b133597d85ee9428e80415291721de, type: 3}
 --- !u!1 &8358991646540063126
 GameObject:
   m_ObjectHideFlags: 0

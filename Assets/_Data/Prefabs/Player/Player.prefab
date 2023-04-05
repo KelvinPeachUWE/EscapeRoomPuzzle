@@ -121,6 +121,8 @@ MonoBehaviour:
   TopClamp: 89
   BottomClamp: -89
   anim: {fileID: 3120058980880233047}
+  audioSrc: {fileID: 4511092125792728472}
+  jumpSound: {fileID: 8300000, guid: d425eeec5c7049e45b3dd2eaaaa05033, type: 3}
 --- !u!114 &8322097105093035937
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -324,7 +326,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 5
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -360,7 +362,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0

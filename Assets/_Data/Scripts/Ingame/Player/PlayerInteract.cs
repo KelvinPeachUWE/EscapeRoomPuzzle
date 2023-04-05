@@ -276,6 +276,10 @@ public class PlayerInteract : MonoBehaviour
             collider.enabled = true;
         }
 
+        // Play drop sound (if there is one)
+        if (audioSrc && heldItem.DropSound)
+            audioSrc.PlayOneShot(heldItem.DropSound);
+
         // Let other objects that want to know know 
         if (onItemDropped != null)
             onItemDropped(heldItem);

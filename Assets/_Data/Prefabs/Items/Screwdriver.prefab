@@ -54,6 +54,8 @@ MonoBehaviour:
   isDestroyOnUse: 1
   forwardHoldOffset: 0
   placementDetector: {fileID: 7218589831842687200}
+  pickupSound: {fileID: 8300000, guid: 51b133597d85ee9428e80415291721de, type: 3}
+  dropSound: {fileID: 8300000, guid: d92299da60f97ec4098bfd86905d2e95, type: 3}
 --- !u!54 &9115455336091103046
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -145,6 +147,9 @@ MonoBehaviour:
   renderers:
   - {fileID: 8373164946332990248}
   - {fileID: 5869492427092186875}
+  layersToCheck:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!65 &868282919105975442
 BoxCollider:
   m_ObjectHideFlags: 0
