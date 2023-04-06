@@ -45,14 +45,22 @@ public class KeypadUI : MonoBehaviour
 
         // Based on the player that activated the keypad UI, choose which monitor to show the UI on
         // Player 1
-        if (enabledBy.name == "Player1" || FailsafeManager.isOneMonitorMode) // If in one monitor failsafe mode, always display on monitor 1
+        if (enabledBy.name == "Player1")
         {
             keypadUICanvas.targetDisplay = 0; // 0 = monitor 1 because it starts counting from 0
         }
         // Player 2
         else
         {
-            keypadUICanvas.targetDisplay = 1; // 1 = 2 because it starts counting from 0
+            // If in one monitor failsafe mode, always display on the first monitor
+            if (FailsafeManager.isOneMonitorMode)
+            {
+                keypadUICanvas.targetDisplay = 0;
+            }
+            else
+            {
+                keypadUICanvas.targetDisplay = 1; // 1 = 2 because it starts counting from 0
+            }
 
             // Make sure the first button is selected so the buttons can be traversed using a controller
             // Source - https://www.youtube.com/watch?v=SXBgBmUcTe0
