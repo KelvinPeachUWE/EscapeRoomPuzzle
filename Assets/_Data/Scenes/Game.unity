@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.000049157705, g: 0.000035106365, b: 0.000049157705, a: 1}
+  m_IndirectSpecularColor: {r: 0.000049144037, g: 0.00003509953, b: 0.000049144037, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -7743,6 +7743,7 @@ GameObject:
   - component: {fileID: 900168548}
   - component: {fileID: 900168547}
   - component: {fileID: 900168546}
+  - component: {fileID: 900168551}
   - component: {fileID: 900168550}
   m_Layer: 5
   m_Name: VictoryCanvas (Player 1)
@@ -7843,11 +7844,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: c776445bdcbba1f45b66921cd91bb2b2, type: 3}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -7929,6 +7930,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &900168551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 900168545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20fc27cecc1344149b698c5805bc214f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioToPlay: {fileID: 8300000, guid: 03b40602ba6c04768a1e4eb5c603d3fd, type: 3}
+  timeBetweenIterations: 20
+  audioSrc: {fileID: 900168550}
 --- !u!1001 &903891544
 PrefabInstance:
   m_ObjectHideFlags: 0
